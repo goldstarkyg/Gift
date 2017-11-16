@@ -1,0 +1,137 @@
+<style>
+	thead, tbody tr {
+		display:table;
+		width:100%;
+		table-layout:fixed;
+	}
+    .app-modal-window .modal-dialog {
+        width: 850px;
+    }
+</style>
+<div ng-controller="GuestinfoController" style="overflow-x: hidden">
+    <script type="text/ng-template" id="guest_detail.html">
+        <div ng-include="'tpl/guestservice/modal/guest_detail.html'"></div>
+    </script>
+    <script type="text/ng-template" id="confirm_modal.html">
+        <div ng-include="'tpl/modal/modal_confirm.html'"></div>
+    </script>
+	
+    <div class="form-horizontal col-md-12 wrapper" style="display: table; margin-top:  ">
+	    
+		<div class="row col-md-3" style="margin:  ">
+			<h3 class="m-n font-thin" style="white-space: nowrap"> <i class="icon-user"></i> Guest Information</h3>
+		</div>
+		
+		<div class="input-group col-md-2 pull-right">
+	      <input type="text" ng-model="searchtext" ng-keyup="onSearch()" class="form-control input-sm bg-light no-border rounded padder" placeholder="Search">
+	      <span class="input-group-btn">
+	        <button type="submit" class="btn btn-sm bg-light rounded"><i class="fa fa-search"></i></button>
+	      </span>
+	    </div>
+	  
+		<div class="row col-md-7" style="margin: auto" ng-if="auth_svc.isValidModule('access.guestservice.swapdatabase')">
+			<button class="btn m-b-sm btn-success pull-right" data-ng-click="onSwapDatabase()">
+				<i class="fa fa-exchange" style="margin: auto;"></i>&nbsp;&nbsp;Database Swap&nbsp;
+			</button>
+			<button class="btn btn-sm btn-icon bg-all pull-right" data-toggle="tooltip" title="Show All" data-placement="bottom" ng-click="onFilter('Total')">
+								<i class=""></i><label><b>ALL</b></label>
+			</button>
+			<button class="btn btn-sm btn-icon bg-wakeup-success pull-right" data-toggle="tooltip" title="Check-Out" data-placement="bottom" ng-click="onFilter(2)"> <!-- In-Progress -->
+								<i class="fa fa-sign-out fa-fw"></i>
+			</button>
+			<button class="btn btn-sm btn-icon bg-wakeup-pending pull-right" data-toggle="tooltip" title="Check-In" data-placement="bottom" ng-click="onFilter(1)"> <!-- Pending -->
+								<i class="fa fa-sign-in fa-fw"></i>
+			</button>
+
+            <button class="btn m-b-sm btn-primary pull-right" data-ng-click="onShowManualPosting()" ng-if="auth_svc.isValidModule('app.guestservice.manualposting')" style="margin-right: 10px">
+                <i class="fa fa-paper-plane" style="margin: auto;"></i>&nbsp;&nbsp;Manual Posting&nbsp;
+            </button>
+		</div>
+		<!--
+		<label>Filter </label>
+		<select class='input-sm' ng-model="checkout_flag" ng-change="onChangeCheckout()"
+            ng-options="state for state in checkout_states">
+    </select>-->
+	</div>
+								
+    
+		<div class="table  table-responsive" additional-padding="40">
+            <table st-table="guestlist"  st-pipe="getGuestList" class="table table-striped ticket">
+                <thead class="tblhead-sm">
+					<tr>
+                        <th class="text-center" st-sort="id" st-sort-default="reverse" style="width: 5%">&nbsp;&nbsp;ID</th>
+												<th class="text-center" st-sort="room" style="width: 6%">&nbsp;&nbsp;Room</th>
+												<th class="text-center" st-sort="guest_name" style="width: 12%">&nbsp;&nbsp;Name</th>
+                        <th class="text-center" st-sort="guest_id" style="width: 7%">&nbsp;&nbsp;Guest ID</th>
+                        <th class="text-center" st-sort="arrival" style="width: 7%">&nbsp;&nbsp;Arrival</th>
+												<th class="text-center" st-sort="departure" style="width: 7%">&nbsp;&nbsp;Departure</th>
+                        <th class="text-center" st-sort="share" style="width: 5%">&nbsp;&nbsp;Share</th>
+												<th class="text-center" st-sort="pre_checkin" style="width: 5%">&nbsp;&nbsp;Pre</th>
+                        <th class="text-center" st-sort="is_arrived" style="width: 5%">&nbsp;&nbsp;Arrived</th>
+                        <th class="text-center" st-sort="dnd" style="width: 5%">&nbsp;&nbsp;DND</th>
+                        <th class="text-center" st-sort="cos" style="width: 5%">&nbsp;&nbsp;COS</th>
+                        <th class="text-center" st-sort="ml" style="width: 5%">&nbsp;&nbsp;Message</th>
+                        <th class="text-center" st-sort="vip" style="width: 5%">&nbsp;&nbsp;VIP</th>
+												<th class="text-center" st-sort="email" style="width: 5%">&nbsp;&nbsp;Email</th>
+                        <th class="text-center" st-sort="mobile" style="width: 5%">&nbsp;&nbsp;Mobile</th>
+                        <th class="text-center" st-sort="ack" style="width: 5%">&nbsp;&nbsp;SMS</th>
+                        <th class="text-center" st-sort="checkout_flag" colspan="2" style="width: 10%">&nbsp;&nbsp;Status</th>
+												
+                    </tr>
+				</thead>
+                <tbody ng-hide="isLoading" style="{{box_height}}; display:block;">
+                    <tr class="" ng-repeat="row in guestlist">
+                        <td class="text-center" style="width: 5%">
+                            <a>{{row.id}}</a>
+                        </td>
+												<td class="text-center" style="width: 6%">{{row.room}}</td>
+												<td style="width: 12%">{{row.guest_name}}</td>
+                        <td class="text-center" style="width: 7%">{{row.guest_id}}</td>
+                        <td class="text-center" style="width: 7%">{{row.arrival | mydate}}</td>
+                        <td class="text-center" style="width: 7%">{{row.departure | mydate}}</td>
+                        <td class="text-center" style="width: 5%">{{row.share == 1 ? 'Shared' : 'Alone'}}</td>
+                        <td class="text-center" style="width: 5%">{{row.pre_checkin == 1 ? 'Yes' : 'No'}}</td>
+                        <td class="text-center" style="width: 5%">{{row.is_arrived == 1 ? 'Yes' : 'No'}}</td>
+                        <td class="text-center" style="width: 5%">{{row.dnd == 1 ? 'Yes' : 'No'}}</td>
+                        <td class="text-center" style="width: 5%">{{row.cos}}</td>
+                        <td class="text-center" style="width: 5%">{{row.ml == 1 ? 'Yes' : 'No'}}</td>
+                        <td class="text-center" style="width: 5%">{{row.vip == 1 ? 'VIP' : ''}}</td>
+                        <td class="text-center" style="width: 5%">{{row.email}}</td>
+                        <td class="text-center" style="width: 5%">{{row.mobile}}</td>
+                        <td class="text-center" style="width: 5%">
+                            <div	style=" padding: 0px; ">
+						        <span class="fa-stack text-danger" ng-if="row.ack==0" >
+				            		<i class="fa fa-times fa-stack-1x" style="font-size:.7vw"> </i>
+					        	</span>
+					        	<span class="fa-stack text-success" ng-if="row.ack==2">
+					        	  	<i class="fa fa-check fa-stack-1x" style="margin-left:4px font-size:.7vw;"></i>
+					        	  	<i class="fa fa-check fa-inverse fa-stack-1x" style="margin-left:-3px; font-size:.7vw;"></i>
+					        	  	<i class="fa fa-check fa-stack-1x" style="margin-left:-4px; font-size:.7vw;"></i>
+					        	</span>
+                            </div>
+                        </td>
+                        <td class="text-center" style="width: 5%">{{row.checkout_flag}}</td>
+                        <td class="text-center" style="width: 5%">
+                            <span>
+                                <button class="btn m-b-xs btn-xs btn-primary" ng-click="viewDetail(row)">&nbsp;
+                                <i class="fa fa-info" style="margin-right: 5px;"></i>&nbsp;</button>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody ng-show="isLoading">
+                    <tr>
+                        <td colspan="18" class="text-center"><i class="fa fa-spin fa-refresh"></i></td>
+                    </tr>
+                </tbody>
+                <tfoot ng-hide="isLoading">
+                    <tr ng-show="paginationOptions.totalItems > paginationOptions.pageSize">
+                        <td colspan="10" class="text-center">
+                            <div st-pagination="" st-items-by-page="paginationOptions.pageSize" st-displayed-pages="7" class="no-margin"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+	
+</div>

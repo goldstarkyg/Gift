@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="301ffe6c-fa2e-4731-b63d-b5a80c1703b3" name="Default" comment="[add] add pagination function.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/frontpage/js/controllers/report/callaccount.controller.js" afterPath="$PROJECT_DIR$/public/frontpage/js/controllers/report/callaccount.controller.js" />
+    </list>
+    <ignored path="CMS.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="CMS" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="ReportController.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Frontend/ReportController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="209">
+                  <caret line="859" column="12" selection-start-line="859" selection-start-column="12" selection-end-line="859" selection-end-column="12" />
+                  <folding>
+                    <element signature="e#50#58#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="callclassify_destination.blade.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callclassify/callclassify_destination.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="493">
+                  <caret line="236" column="83" selection-start-line="229" selection-start-column="25" selection-end-line="236" selection-end-column="83" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="callclassify_pdf.blade.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callclassify_pdf.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="458">
+                  <caret line="104" column="67" selection-start-line="104" selection-start-column="67" selection-end-line="104" selection-end-column="67" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="callclassify_department.blade.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callclassify/callclassify_department.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="405">
+                  <caret line="297" column="91" selection-start-line="297" selection-start-column="83" selection-end-line="297" selection-end-column="91" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Property.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Models/Common/Property.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1292">
+                  <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.env">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="102">
+                  <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="admin.blade.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/nightaudit/admin.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="callaccount_desc.blade.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_desc.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="1" column="50" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="50" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="nightaudit_desc.blade.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/nightaudit/nightaudit_desc.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="ReportController.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Frontend/ReportController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="92">
+                  <caret line="845" column="25" selection-start-line="845" selection-start-column="16" selection-end-line="845" selection-end-column="25" />
+                  <folding>
+                    <element signature="e#50#58#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callcenter/callstatus.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callcenter/date.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callcenter/origin.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callcenter/perhour.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callcenter/calltype.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callcenter/agentstatus.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount_pdf.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_grunt_total_admin_by_building_department.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_grunt_total_admin.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_grunt_total.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_grunt_total_by_building_calldate.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_grunt_total_guest.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_summary_by_extension.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_detail_guest.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/hskp.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/guestservice.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/wakeupcall/wakeupcall.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/wakeupcall_pdf.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/minibar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callclassify/callclassify_calldate.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_detail_admin.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_detail_by_building_room_department.blade.php" />
+        <option value="$PROJECT_DIR$/public/frontpage/tpl/reports/callaccount_report.html" />
+        <option value="$PROJECT_DIR$/public/frontpage/js/controllers/report/callaccount.controller.js" />
+        <option value="$PROJECT_DIR$/public/frontpage/js/controllers/report/callcenter.controller.js" />
+        <option value="$PROJECT_DIR$/public/frontpage/tpl/reports/callcenter_report.html" />
+        <option value="$PROJECT_DIR$/public/frontpage/tpl/reports/hskp_report.html" />
+        <option value="$PROJECT_DIR$/public/frontpage/js/controllers/report/hskp.controller.js" />
+        <option value="$PROJECT_DIR$/public/frontpage/js/controllers/report/guestservice.controller.js" />
+        <option value="$PROJECT_DIR$/public/frontpage/tpl/reports/minibar_report.html" />
+        <option value="$PROJECT_DIR$/public/frontpage/tpl/reports/guestservice_report.html" />
+        <option value="$PROJECT_DIR$/public/frontpage/js/controllers/report/minibar.controller.js" />
+        <option value="$PROJECT_DIR$/public/frontpage/js/controllers/report/wakeupcall.controller.js" />
+        <option value="$PROJECT_DIR$/public/frontpage/tpl/reports/wakeupcall_report.html" />
+        <option value="$PROJECT_DIR$/public/frontpage/tpl/reports/callclassify_report.html" />
+        <option value="$PROJECT_DIR$/public/frontpage/js/controllers/report/callclassify.controller.js" />
+        <option value="$PROJECT_DIR$/public/frontpage/css/tabstyles.css" />
+        <option value="$PROJECT_DIR$/public/frontpage/tpl/reports/dashboard.html" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callclassify/callclassify_department.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/nightaudit/callcenter_desc.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/nightaudit/guest_admin.blade.php" />
+        <option value="$PROJECT_DIR$/config/excel.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/nightaudit_pdf.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/nightaudit/guest.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/nightaudit/admin.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/nightaudit/nightaudit_desc.blade.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callclassify_pdf.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Frontend/ReportController.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/report/callclassify/callclassify_destination.blade.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <gulpfiles>
+      <GulpfileState>
+        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+      </GulpfileState>
+    </gulpfiles>
+  </component>
+  <component name="PhpDebugGeneral" break_at_first_line="true" hide_empty_superglobals="false" notify_if_session_was_finished_without_being_paused="false" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Blade files</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../MBuyy/sample_syg/occizer_cms" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="SearchEverywhereHistoryKey" value="sendmail&#9;null&#9;null&#10;config&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/config.router.js&#10;complaint&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket/complaint_new.html&#10;style&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/css/style.css&#10;Guestcon&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/Controllers/Frontend/GuestserviceController.php&#10;ticket.html&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket.html&#10;Guestser&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/Controllers/Frontend/GuestserviceController.php&#10;guestser&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/Controllers/Frontend/GuestserviceController.php&#10;ticket&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket_list.html&#10;guest&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/controllers/guestservice/tickets/guestrequest_edit.controller.js&#10;guestserv&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/controllers/guestservice/guestservice.controller.js&#10;ticket.&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket_list.html&#10;route&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/routes.php&#10;routes&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/routes.php&#10;ticket.h&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket_list.html&#10;reservat&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/Controllers/Frontend/ReservationController.php&#10;reservation&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/controllers/guestservice/reservation/reservation_edit.controller.js&#10;manage&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket/managed_task_new.html&#10;gue&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/Controllers/Frontend/GuestserviceController.php&#10;guest_edi&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/controllers/guestservice/tickets/guestrequest_edit.controller.js&#10;reser&#9;null&#9;null&#10;reserva&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/Controllers/Frontend/ReservationController.php&#10;routes.&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/routes.php&#10;guestcon&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/Controllers/Frontend/GuestserviceController.php&#10;app.header&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/blocks/app.header.html&#10;Reserv&#9;null&#9;null&#10;reserv&#9;null&#9;null&#10;guest.ser&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/services/guestservice.service.js&#10;Guestserv&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/Controllers/Frontend/GuestserviceController.php&#10;route.php&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/routes.php&#10;gr&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket/guest_request.html&#10;guest.serv&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/services/guestservice.service.js&#10;guestservi&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/controllers/guestservice/guestservice.controller.js&#10;ticketlis&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket_list.html&#10;ticketlist&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket_list.html&#10;ticket.htm&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket.html&#10;guestservice&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/controllers/guestservice/guestservice.controller.js&#10;dept&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/adminpanel/js/controllers/guest/deptfunc.js&#10;deptfun&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/adminpanel/partials/guest/deptfunc.html&#10;datacon&#9;null&#9;null&#10;app.&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/blocks/app.layout.html&#10;channel.js&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/adminpanel/js/controllers/interface/channel.js&#10;channel.html&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/adminpanel/partials/interface/channel.html&#10;guest.servi&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/services/guestservice.service.js&#10;ticket_list&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/tpl/guestservice/ticket_list.html&#10;routes.php&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Http/routes.php&#10;date.ser&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/frontpage/js/services/date.service.js&#10;channel.h&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/public/adminpanel/partials/interface/channel.html&#10;Commonf&#9;null&#9;null&#10;Room.php&#9;FILE&#9;file://E:/Work/HotelManagement/Work/CMS/app/Models/Common/Room.php" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="221" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="250" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="254" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1137" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="232" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="246" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="250" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1134" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="TODO_SCOPE" value="Project Files" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="nodejs_interpreter_path" value="C:\nodejs\node" />
+    <property name="js.buildTools.gulp.gulp_package_dir" value="" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\work\Hotlync\src\CMS\app\Models\IVR" />
+      <recent name="E:\Work\HotelManagement\Work\CMS\public\frontpage\js\controllers\report" />
+      <recent name="E:\Work\HotelManagement\Work\CMS\public\frontpage\tpl\reports" />
+      <recent name="E:\Work\HotelManagement\Work\CMS\resources\views\frontend\report\callaccount" />
+      <recent name="E:\Work\HotelManagement\Work\CMS\resources\views\frontend\report" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Work\HotelManagement\Work\CMS\resources\views\frontend\report\callaccount" />
+      <recent name="E:\Work\HotelManagement\Work\CMS\public\adminpanel\js" />
+      <recent name="E:\Work\HotelManagement\Work\CMS\public\adminpanel" />
+      <recent name="E:\Work\HotelManagement\Work\CMS\public\frontpage\js\controllers" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AppEnginePhpConfigurationType" factoryName="App Engine for PHP">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/public" host="192.168.1.91" port="8894" router_script="$PROJECT_DIR$/app/Http/routes.php" use_router_script="true">
+      <CommandLine workingDirectory="$PROJECT_DIR$" />
+      <option name="workingDirectory" value="E:\work\Hotlync\src\CMS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request" server_name="myhotlinc" url="/aaa">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/app/Http/Controllers/Frontend/GuestserviceController.php">
+      <CommandLine workingDirectory="$PROJECT_DIR$" />
+      <option name="workingDirectory" value="E:\work\Hotlync\src\CMS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="myhotlinc" session_id="phpstom">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="b2a9d4db-f65a-4ce2-8ff7-eb3638877452" server_name="local">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="myserver">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="301ffe6c-fa2e-4731-b63d-b5a80c1703b3" name="Default" comment="" />
+      <created>1464103265465</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1464103265465</updated>
+      <workItem from="1469061653908" duration="36956000" />
+      <workItem from="1478098028469" duration="9434000" />
+      <workItem from="1478133855309" duration="42310000" />
+      <workItem from="1478193393456" duration="3137000" />
+      <workItem from="1478220421690" duration="50000000" />
+      <workItem from="1478307946212" duration="42426000" />
+      <workItem from="1478480211007" duration="50135000" />
+      <workItem from="1478566170797" duration="39135000" />
+      <workItem from="1478652056665" duration="38043000" />
+      <workItem from="1478739242870" duration="30307000" />
+      <workItem from="1478826971816" duration="40559000" />
+      <workItem from="1478914131822" duration="42299000" />
+      <workItem from="1479087373749" duration="42369000" />
+      <workItem from="1479170912799" duration="36272000" />
+      <workItem from="1479141177846" duration="3123000" />
+      <workItem from="1479257591591" duration="24496000" />
+      <workItem from="1479344352493" duration="37552000" />
+      <workItem from="1479403617199" duration="444000" />
+      <workItem from="1479404530895" duration="184000" />
+      <workItem from="1479404821088" duration="2357000" />
+      <workItem from="1479430914757" duration="21438000" />
+      <workItem from="1479490897569" duration="305000" />
+      <workItem from="1479518157387" duration="3338000" />
+      <workItem from="1479265368944" duration="26121000" />
+      <workItem from="1479690843093" duration="21100000" />
+      <workItem from="1479783143967" duration="30878000" />
+      <workItem from="1479869391665" duration="33393000" />
+      <workItem from="1479958465003" duration="22552000" />
+      <workItem from="1480042613454" duration="35093000" />
+      <workItem from="1480122554501" duration="6243000" />
+      <workItem from="1480143988177" duration="16265000" />
+      <workItem from="1480215503153" duration="5201000" />
+      <workItem from="1480294393263" duration="40683000" />
+      <workItem from="1480380387027" duration="37492000" />
+      <workItem from="1480467525173" duration="22978000" />
+      <workItem from="1480554484059" duration="32529000" />
+      <workItem from="1480640398979" duration="24946000" />
+      <workItem from="1480736011957" duration="16221000" />
+      <workItem from="1480833160561" duration="3160000" />
+      <workItem from="1480848104257" duration="2016000" />
+      <workItem from="1480898262012" duration="33962000" />
+      <workItem from="1480985463721" duration="20975000" />
+      <workItem from="1481071826256" duration="14516000" />
+      <workItem from="1481157559880" duration="18013000" />
+      <workItem from="1481244302782" duration="23689000" />
+      <workItem from="1481333288492" duration="20283000" />
+      <workItem from="1481505061381" duration="31794000" />
+      <workItem from="1481599741968" duration="32472000" />
+      <workItem from="1481676975891" duration="41163000" />
+      <workItem from="1481763869455" duration="32095000" />
+      <workItem from="1481819966195" duration="4843000" />
+      <workItem from="1481848818938" duration="42028000" />
+      <workItem from="1481936092189" duration="13996000" />
+      <workItem from="1481964640529" duration="21551000" />
+      <workItem from="1482117511468" duration="5035000" />
+      <workItem from="1482124734104" duration="212000" />
+      <workItem from="1482132650116" duration="3848000" />
+      <workItem from="1482194955018" duration="41537000" />
+      <workItem from="1482256364499" duration="1279000" />
+      <workItem from="1482195656097" duration="35345000" />
+      <workItem from="1482285616268" duration="21834000" />
+      <workItem from="1482367858274" duration="36993000" />
+      <workItem from="1482461501308" duration="29844000" />
+      <workItem from="1482544150961" duration="9813000" />
+      <workItem from="1482573274187" duration="3897000" />
+      <workItem from="1482713299867" duration="31639000" />
+      <workItem from="1482799839045" duration="40327000" />
+      <workItem from="1482886302256" duration="34908000" />
+      <workItem from="1482972986244" duration="19107000" />
+      <workItem from="1483070283338" duration="10458000" />
+      <workItem from="1483414800584" duration="25816000" />
+      <workItem from="1483505637805" duration="12376000" />
+      <workItem from="1483536066069" duration="2406000" />
+      <workItem from="1483579220479" duration="34409000" />
+      <workItem from="1483663125084" duration="24989000" />
+      <workItem from="1483760102569" duration="26053000" />
+      <workItem from="1483925146437" duration="28556000" />
+      <workItem from="1484008487019" duration="30031000" />
+      <workItem from="1484094713691" duration="14322000" />
+    </task>
+    <task id="LOCAL-00001" summary="[fixed] fix check out request process.">
+      <created>1464678953097</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1464678953097</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[fixed] change base font size for bootstrap">
+      <created>1466817044183</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1466817044183</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[add] add loading icon">
+      <created>1466819128607</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1466819128607</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[change] only select by checkbox selection">
+      <created>1466825519046</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1466825519046</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[add] add pagination function.">
+      <created>1466827682567</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1466827682567</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1849904000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22622108" sideWeight="0.37747034" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.116875" sideWeight="0.6166884" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751676" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36827958" sideWeight="0.51285344" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33870968" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252688" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2175" sideWeight="0.3833116" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="91" y="91" width="1738" height="850" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24935733" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30899608" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32080537" sideWeight="0.48714653" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751676" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36827958" sideWeight="0.51285344" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="91" y="91" width="1738" height="850" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33870968" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252688" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22622108" sideWeight="0.37747034" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.116875" sideWeight="0.6166884" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24935733" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30899608" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2175" sideWeight="0.3833116" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32080537" sideWeight="0.48714653" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[fixed] fix check out request process." />
+    <MESSAGE value="[fixed] change base font size for bootstrap" />
+    <MESSAGE value="[add] add loading icon" />
+    <MESSAGE value="[change] only select by checkbox selection" />
+    <MESSAGE value="[add] add pagination function." />
+    <option name="LAST_COMMIT_MESSAGE" value="[add] add pagination function." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <dependency master-id="0" />
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Frontend/GuestserviceController.php</url>
+          <line>817</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Frontend/GuestserviceController.php</url>
+          <line>1212</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <default-breakpoints>
+        <breakpoint type="javascript-exception">
+          <dependency id="0" />
+          <properties />
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="65" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="CMS" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="CMS" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_grunt_total_admin_by_building_department.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_grunt_total_by_building_calldate.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_grunt_total_guest.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_summary_by_extension.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_detail_by_building_room_department.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/tpl/reports/callaccount_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="167" column="83" selection-start-line="167" selection-start-column="55" selection-end-line="167" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/controllers/report/hskp.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/controllers/report/guestservice.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/controllers/report/minibar.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/tpl/reports/wakeupcall_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="98" column="80" selection-start-line="98" selection-start-column="80" selection-end-line="98" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/controllers/report/wakeupcall.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="5" selection-start-line="12" selection-start-column="4" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bootstrap/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1924">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/tpl/reports/minibar_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="89" selection-start-line="62" selection-start-column="60" selection-end-line="62" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/tpl/reports/hskp_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="92" selection-start-line="65" selection-start-column="92" selection-end-line="65" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/controllers/report/callaccount.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="5" selection-start-line="11" selection-start-column="3" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/tpl/reports/guestservice_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/css/tabstyles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/tpl/reports/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcessController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="138" column="22" selection-start-line="138" selection-start-column="22" selection-end-line="138" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="44" column="52" selection-start-line="44" selection-start-column="52" selection-end-line="44" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/config.router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="116" column="77" selection-start-line="116" selection-start-column="77" selection-end-line="116" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/tpl/reports/callclassify_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/controllers/report/callclassify.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="275" column="33" selection-start-line="275" selection-start-column="33" selection-end-line="275" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/controllers/report/day_report.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/tpl/reports/day_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="26" column="68" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Modules/Functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11815">
+          <caret line="704" column="20" selection-start-line="704" selection-start-column="20" selection-end-line="704" selection-end-column="20" />
+          <folding>
+            <marker date="1480325990681" expanded="true" signature="4423:4701" placeholder="..." />
+            <marker date="1480325990681" expanded="true" signature="4904:5184" placeholder="..." />
+            <marker date="1480325990681" expanded="true" signature="6657:6780" placeholder="SELECT activ... ${$db_table_prefix}" />
+            <marker date="1480325990681" expanded="true" signature="6828:6991" placeholder="SELECT activ... ${$db_table_prefix}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callcenter/callcenter_desc.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="73" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callcenter/agent.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/excel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4539">
+          <caret line="267" column="63" selection-start-line="267" selection-start-column="63" selection-end-line="267" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="403" column="9" selection-start-line="403" selection-start-column="9" selection-end-line="403" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_3.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="708" column="9" selection-start-line="708" selection-start-column="9" selection-end-line="708" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20247">
+          <caret line="1191" column="9" selection-start-line="1191" selection-start-column="9" selection-end-line="1191" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount_pdf.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2363">
+          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_detail_admin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/nightaudit/guest.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding>
+            <marker date="1484019516218" expanded="true" signature="3810:3851" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/tpl/reports/callcenter_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="133" column="62" selection-start-line="133" selection-start-column="49" selection-end-line="133" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontpage/js/controllers/report/callcenter.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4913">
+          <caret line="289" column="10" selection-start-line="289" selection-start-column="10" selection-end-line="289" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/nightaudit_pdf.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="90" column="26" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callcenter_pdf.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/nightaudit/admin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callaccount/callaccount_desc.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="50" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/nightaudit/nightaudit_desc.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Common/Property.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callclassify/callclassify_department.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="297" column="91" selection-start-line="297" selection-start-column="83" selection-end-line="297" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callclassify_pdf.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="104" column="67" selection-start-line="104" selection-start-column="67" selection-end-line="104" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Frontend/ReportController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="859" column="12" selection-start-line="859" selection-start-column="12" selection-end-line="859" selection-end-column="12" />
+          <folding>
+            <element signature="e#50#58#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/report/callclassify/callclassify_destination.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="236" column="83" selection-start-line="229" selection-start-column="25" selection-end-line="236" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

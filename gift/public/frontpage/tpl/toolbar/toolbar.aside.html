@@ -1,0 +1,269 @@
+<style>
+	.backofleft {
+		background: #0d47a1 !important;
+	}
+	.subbackofleft {
+		background: #3973cc !important;
+	}
+</style>
+<ul ng-init="sel_menu=1">
+	
+	<li class="main_menu hint--right {{sel_menu==1 ? 'backofleft': '' }}"  ng-show="auth_svc.isValidModule('app.mytask.dashboard')" data-hint="My Task" data-ng-click="sel_menu=1" ui-sref="app.mytask.dashboard">
+		<i class="fa fa-tasks"></i>		
+		<span ng-if="mytask_notify_count > 0" class="badge badge-sm up bg-danger pull-right-xs" style="position: absolute; margin-top: 18px">
+			!
+		</span>
+	</li>
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==1}">
+		<ul>
+			<li class="hint--right {{ subMenuColor('app.mytask.complaint')}}" ng-if="auth_svc.isValidModule('app.mytask.complaint')" data-hint="Complaint">
+				<a ui-sref="app.mytask.complaint"><i class="fa fa-envelope-o"></i>
+					<span ng-if="mytask_complaint_notify_count > 0" class="badge badge-sm up bg-danger pull-right-xs" style="position: absolute; margin-top: 18px">
+						{{mytask_complaint_notify_count}}
+					</span>
+				</a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.mytask.guestservice')}} " data-hint="My Task" ng-if="auth_svc.isValidModule('app.mytask.guestservice')">
+				<a ui-sref="app.mytask.guestservice"><i class="fa fa-ticket"></i>
+					<span ng-if="mytask_guestservice_notify_count > 0" class="badge badge-sm up bg-danger pull-right-xs" style="position: absolute; margin-top: 18px">
+						{{mytask_guestservice_notify_count}}
+					</span>
+				</a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.mytask.workorder')}} " data-hint="Work Order" ng-if="auth_svc.isValidModule('app.mytask.workorder')">
+				<a ui-sref="app.mytask.workorder"><i class="fa fa-clipboard"></i>
+					<span ng-if="mytask_workorder_notify_count > 0" class="badge badge-sm up bg-danger pull-right-xs" style="position: absolute; margin-top: 18px">
+						{{mytask_workorder_notify_count}}
+					</span>
+				</a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.mytask.it')}} " data-hint="IT" ng-if="auth_svc.isValidModule('app.mytask.it')">
+				<a ui-sref="app.mytask.it"><i class="fa fa-exclamation"></i></a>
+			</li>
+		</ul>
+	</div>
+	
+	<!-- 
+	<li class="main_menu hint--right" ng-show="auth_svc.isValidModule('app.guestservice.reservation')" data-hint="Reservation" data-ng-click="sel_menu=2" ui-sref="app.guestservice.reservation">
+		<i class="fa fa-book"></i>
+	</li>
+	-->
+	
+	<li class="main_menu hint--right {{sel_menu==3 ? 'backofleft': '' }}" ng-show="auth_svc.isValidModule('app.guestservice.dashboard')" data-hint="Guest Services" data-ng-click="sel_menu=3" ui-sref="app.guestservice.dashboard">
+		<i class="fa fa-street-view"></i>
+	</li>
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==3}">
+		<ul>
+			<li class="hint--right {{ subMenuColor('app.guestservice.ticket')}} " ng-if="auth_svc.isValidModule('app.guestservice.ticket')" data-hint="Request">
+				<a ui-sref="app.guestservice.ticket"><i class="fa fa-ticket"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.guestservice.shift')}} " data-hint="Shifts" ng-if="auth_svc.isValidModule('app.guestservice.shift')">
+				<a ui-sref="app.guestservice.shift"><i class="fa fa-clock-o"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.guestservice.alarm')}} " data-hint="Alarms" ng-if="auth_svc.isValidModule('app.guestservice.alarm')">
+				<a ui-sref="app.guestservice.alarm"><i class="fa fa-bell"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.guestservice.guestinfo')}}" data-hint="Guest Information" ng-if="auth_svc.isValidModule('app.guestservice.guestinfo')">
+				<a ui-sref="app.guestservice.guestinfo"><i class="fa fa-info"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.guestservice.guest_sms_template')}} " data-hint="Guest SMS Template" ng-if="auth_svc.isValidModule('app.guestservice.guest_sms_template')">
+				<a ui-sref="app.guestservice.guest_sms_template"><i class="fa fa-file"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.guestservice.wakeup')}} " data-hint="Wake up" ng-if="auth_svc.isValidModule('app.guestservice.wakeup')">
+				<a ui-sref="app.guestservice.wakeup"><i class="fa fa-sun-o"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.guestservice.chat')}} " data-hint="Chat" ng-if="auth_svc.isValidModule('app.guestservice.chat')">
+				<a ui-sref="app.guestservice.chat">
+					<i class="fa fa-comments"></i>
+					<span ng-if="unread_chat_cnt > 0" class="badge badge-sm up bg-danger pull-right-xs" style="position: absolute; margin-top: 18px">
+						{{unread_chat_cnt}}
+					</span>
+				</a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.guestservice.promotion')}} " data-hint="Promotion" ng-if="auth_svc.isValidModule('app.guestservice.promotion')">
+				<a ui-sref="app.guestservice.promotion"><i class="fa fa-gift"></i></a>
+			</li>
+			<!--<li class="hint&#45;&#45;right" data-hint="Duty Complaint" ng-if="auth_svc.isValidModule('app.guestservice.complaint')">-->
+				<!--<a ui-sref="app.guestservice.complaint"><i class="fa fa-envelope-o"></i></a>-->
+			<!--</li>-->
+			<!--<li class="hint&#45;&#45;right" data-hint="Complaint Briefing" ng-if="auth_svc.isValidModule('app.guestservice.briefing_mng')">-->
+				<!--<a ui-sref="app.guestservice.briefing_mng"><i class="fa fa-briefcase"></i></a>-->
+			<!--</li>-->
+			<!--<li class="hint&#45;&#45;right" data-hint="Briefing View" ng-if="auth_svc.isValidModule('app.guestservice.briefing_view')">-->
+				<!--<a ui-sref="app.guestservice.briefing_view"><i class="fa fa-group"></i></a>	-->
+			<!--</li>-->
+		</ul>
+	</div>
+
+	<li class="main_menu hint--right {{sel_menu==12 ? 'backofleft': '' }}" ng-show="auth_svc.isValidModule('app.complaintmgnt.dashboard')" data-hint=" Complaint Management" data-ng-click="sel_menu=12" ui-sref="app.complaintmgnt.dashboard">
+		<i class="fa fa-comment"></i>
+	</li>
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==12}">
+		<ul>
+			<li class="hint--right {{ subMenuColor('app.complaint.complaint')}} " data-hint="Duty Complaint" ng-if="auth_svc.isValidModule('app.complaint.complaint')">
+				<a ui-sref="app.complaint.complaint"><i class="fa fa-envelope-o"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.complaint.briefing_mng')}} " data-hint="Complaint Briefing" ng-if="auth_svc.isValidModule('app.complaint.briefing_mng')">
+				<a ui-sref="app.complaint.briefing_mng"><i class="fa fa-briefcase"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.complaint.advance_briefing')}} " data-hint="Advance Briefing" ng-if="auth_svc.isValidModule('app.complaint.advance_briefing')">
+				<a ui-sref="app.complaint.advance_briefing"><i class="fa fa-cog"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.complaint.briefing_view')}} " data-hint="Briefing View" ng-if="auth_svc.isValidModule('app.complaint.briefing_view')">
+				<a ui-sref="app.complaint.briefing_view"><i class="fa fa-group"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.complaint.compensation_template')}} " data-hint="Compensation Template" ng-if="auth_svc.isValidModule('app.complaint.compensation_template')">
+				<a ui-sref="app.complaint.compensation_template"><i class="fa fa-file"></i></a>
+			</li>
+		</ul>
+	</div>
+	
+	<li class="main_menu hint--right {{sel_menu==4 ? 'backofleft': '' }}" ng-show="auth_svc.isValidModule('app.callaccounting.dashboard')" data-hint="Call Accouting" data-ng-click="sel_menu=4" ui-sref="app.callaccounting.dashboard">
+		<i class="fa fa-phone"></i>
+	</li>
+  
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==4}">
+		<ul>
+			<li class="hint--right {{ subMenuColor('app.callaccounting.livedata')}} " ng-if="auth_svc.isValidModule('app.callaccounting.livedata')" data-hint="Live Data">
+				<a ui-sref="app.callaccounting.livedata"><i class="fa fa-area-chart"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.callaccounting.mycalls')}} " ng-if="auth_svc.isValidModule('app.callaccounting.mycalls')" data-hint="My Call">
+				<a ui-sref="app.callaccounting.mycalls"><i class="fa fa-phone-square"></i></a>
+			</li>
+			<!--<li class="hint--right" data-hint="Directory">
+				<a href=""><i class="fa fa-book"></i></a>
+			</li>-->
+			<li class="hint--right {{ subMenuColor('app.callaccounting.myapproval')}} " ng-if="auth_svc.isValidModule('app.callaccounting.myapproval')" data-hint="My Approvals">
+				<a ui-sref="app.callaccounting.myapproval"><i class="fa fa-user"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.callaccounting.finance')}} " ng-if="auth_svc.isValidModule('app.callaccounting.finance')" data-hint="Finance">
+				<a ui-sref="app.callaccounting.finance"><i class="fa fa-dollar"></i></a>
+			</li>
+		</ul>
+	</div>
+	
+	<li class="main_menu hint--right {{sel_menu==5 ? 'backofleft': '' }}" ng-show="auth_svc.isValidModule('app.minibar.dashboard')" data-hint="Mini Bar" data-ng-click="sel_menu=5" ui-sref="app.minibar.dashboard">
+		<i class="fa fa-glass"></i>
+	</li>
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==5}">
+		<ul>
+			<li class="hint--right {{ subMenuColor('app.minibar.logs')}} " ng-if="auth_svc.isValidModule('app.minibar.logs')" data-hint="Logs">
+				<a ui-sref="app.minibar.logs"><i class="fa fa-history"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.minibar.by_guest')}} " ng-if="auth_svc.isValidModule('app.minibar.by_guest')" data-hint="By Guest">
+				<a ui-sref="app.minibar.by_guest"><i class="fa fa-user"></i></a>
+			</li>
+		</ul>
+	</div>
+
+	<li class="main_menu hint--right {{sel_menu==6 ? 'backofleft': '' }}" ng-show="auth_svc.isValidModule('app.housekeeping.dashboard')" data-hint="Housekeeping" data-ng-click="sel_menu=6" ui-sref="app.housekeeping.dashboard">
+		<i class="fa fa-bed"></i>
+	</li>
+	
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==6}">
+		<ul>
+			<li class="hint--right {{ subMenuColor('')}} " data-hint="Duty Assignment">
+				<a href=""><i class="fa fa-calendar"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.housekeeping.workflow')}} " ng-if="auth_svc.isValidModule('app.housekeeping.workflow')" data-hint="Work Flow">
+				<a ui-sref="app.housekeeping.workflow"><i class="fa fa-sitemap"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.housekeeping.assignment')}} " ng-if="auth_svc.isValidModule('app.housekeeping.assignment')" data-hint="Room Assignment">
+				<a ui-sref="app.housekeeping.assignment"><i class="fa fa fa-tasks"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.housekeeping.realtime')}} " ng-if="auth_svc.isValidModule('app.housekeeping.realtime')" data-hint="Real Time">
+				<a ui-sref="app.housekeeping.realtime"><i class="fa fa fa-tachometer"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.housekeeping.turndown_assign')}} " ng-if="auth_svc.isValidModule('app.housekeeping.turndown_assign')" data-hint="Turn Down Service">
+				<a ui-sref="app.housekeeping.turndown_assign"><i class="fa fa-caret-down"></i></a>
+			</li>			
+		</ul>
+	</div>
+
+	<!--
+	<li class="main_menu hint&#45;&#45;right" data-hint="Call Distribution" data-ng-click="sel_menu=7" ui-sref="app.calldistribution.dashboard">
+		<i class="fa fa-external-link"></i>
+	</li>
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==7}">
+		<ul>
+		</ul>
+	</div>
+	-->
+	
+	<li class="main_menu hint--right {{sel_menu==8 ? 'backofleft': '' }}" ng-show="auth_svc.isValidModule('app.calls.dashboard')" data-hint="Calls" data-ng-click="sel_menu=8" ui-sref="app.calls.dashboard">
+		<i class="fa fa-mobile"></i>
+	</li>
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==8}">
+		<ul>
+			<li class="hint--right {{ subMenuColor('app.calls.logger')}} " ng-if="auth_svc.isValidModule('app.calls.logger')" data-hint="Call Logger" ui-sref="app.calls.logger">
+				<a href=""><i class="fa fa-list-alt"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.calls.agentstatus')}} " ng-if="auth_svc.isValidModule('app.calls.agentstatus')" data-hint="Agent Status" ui-sref="app.calls.agentstatus">
+				<a href=""><i class="fa fa-user"></i><span></span></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.calls.managecall')}} " ng-if="auth_svc.isValidModule('app.calls.managecall')" data-hint="Manage Call Inform" ui-sref="app.calls.managecall">
+				<a href=""><i class="fa fa-phone"></i><span></span></a>
+			</li>
+		</ul>
+	</div>
+	
+	
+	<li class="main_menu hint--right {{sel_menu==9 ? 'backofleft': '' }}" ng-show="auth_svc.isValidModule('app.engineering.dashboard')" data-hint="Engineering" data-ng-click="sel_menu=9" ui-sref="app.engineering.dashboard">
+		<i class="fa fa-gears"></i>
+	</li>
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==9}">
+		<ul>
+			<li class="hint--right {{ subMenuColor('app.engineering.request')}} " dng-if="auth_svc.isValidModule('app.engineering.request')" data-hint="Request List" ui-sref="app.engineering.request" >
+				<a href=""><i class="fa fa-tasks"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.engineering.preventive')}} " ng-if="auth_svc.isValidModule('app.engineering.preventive')" data-hint="Preventive Maintenance" ui-sref="app.engineering.preventive">
+				<a href=""><i class="fa fa-exclamation-triangle"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.engineering.equipment')}} " ng-if="auth_svc.isValidModule('app.engineering.equipment')" data-hint="Equipment" ui-sref="app.engineering.equipment" >
+				<a href=""><i class="fa fa-fire"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.engineering.part')}}" ng-if="auth_svc.isValidModule('app.engineering.part')" data-hint="Inventory" ui-sref="app.engineering.part" >
+				<a href=""><i class="fa fa-table"></i></a>
+			</li>
+			<li class="hint--right {{ subMenuColor('app.engineering.workorder')}} " ng-if="auth_svc.isValidModule('app.engineering.workorder')" data-hint="Work Orders" ui-sref="app.engineering.workorder" >
+				<a href=""><i class="fa fa-clipboard"></i></a>
+			</li>
+			<!--<li class="hint&#45;&#45;right" ng-if="auth_svc.isValidModule('app.engineering.checklist')" data-hint="Create Checklist" ui-sref="app.engineering.checklist" >-->
+				<!--<a href=""><i class="fa fa-list"></i></a>-->
+			<!--</li>-->
+
+			<!--<li class="hint&#45;&#45;right" data-hint="Vendors">-->
+				<!--<a href=""><i class="fa fa-black-tie"></i></a>-->
+			<!--</li>-->
+		</ul>
+	</div>
+	<!--
+	<li class="main_menu hint--right" ng-show="auth_svc.isValidModule('app.guestsurvey.dashboard')" data-hint="Guest Survey" data-ng-click="sel_menu=10" ui-sref="app.guestsurvey.dashboard">
+			<i class="fa fa-star"></i>
+	</li>
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==10}">
+		<ul>
+			<li class="hint--right" data-hint="Guest Survey"  ng-if="auth_svc.isValidModule('app.guestsurvey.setting')" >
+				<a ui-sref="app.guestsurvey.setting"><i class="fa fa-exclamation-triangle"></i></a>
+			</li>
+			<li class="hint--right" data-hint="Survey Answers" ng-if="auth_svc.isValidModule('app.guestsurvey.answer')">
+				<a ui-sref="app.guestsurvey.answer"><i class="fa fa-newspaper-o"></i></a>
+			</li>
+		</ul>
+	</div>
+	-->
+	<li class="main_menu hint--right {{sel_menu==13 ? 'backofleft': '' }}" ng-show="auth_svc.isValidModule('app.marketing')" data-hint=" Marketing" data-ng-click="sel_menu=13" ui-sref="app.marketing">
+		<i class="fa fa-building-o"></i>
+	</li>
+	<div ng-class="{'sub_menu':true, 'show':sel_menu==13}">
+		<ul>
+			<li class="hint--right {{ subMenuColor('app.marketing.campaign')}} " data-hint="Campaign Manager" ng-if="auth_svc.isValidModule('app.marketing.campaign')">
+				<a ui-sref="app.marketing.campaign"><i class="fa fa-cogs"></i></a>
+			</li>			
+		</ul>
+	</div>
+
+	<li class="main_menu hint--right {{sel_menu==11 ? 'backofleft': '' }}" ng-show="auth_svc.isValidModule('app.reports')" data-hint="Reports" data-ng-click="sel_menu=11" ui-sref="app.reports">
+		<i class="fa fa-bar-chart"></i>
+	</li>
+</ul>

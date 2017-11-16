@@ -1,0 +1,119 @@
+<div class="modal-body wrapper-lg">
+  <h3 class="m-t-none m-b font-thin">Complaint Detail <i class="fa fa-star pull-right" ng-style="{ 'color': complaint.flag ? 'orange' : '#888' }"  ng-click="flagComplaint()"></i></h3> 
+  <hr/>
+  <div class ="row">
+    <div class="col-sm-3">
+      <h5 class="text-muted">ID :</h5>
+    </div>
+    <div class="col-sm-3">
+      <h5 class="text-muted">{{getTicketNumber(complaint)}}</h5>
+    </div> 
+    <div class="col-sm-3">
+      <h5 class="text-muted">Guest Type :</h5>
+    </div>
+    <div class="col-sm-3">
+      <h5 class="text-muted">{{complaint.guest_type}}</h5>
+    </div>   
+  </div>
+
+  <div class ="row">
+    <div class="col-sm-3">
+      <h5 class="text-muted">Location :</h5>
+    </div>
+    <div class="col-sm-3">
+      <h5 class="text-muted">{{complaint.lgm_name}}</h5>
+    </div>
+    <div class="col-sm-3">
+      <h5 class="text-muted">Location Type :</h5>
+    </div>
+    <div class="col-sm-3">
+      <h5 class="text-muted">{{complaint.lgm_type}}</h5>
+    </div>
+  </div>
+
+  <div class ="row">
+    <div class="col-sm-3">
+      <h5 class="text-muted">Requestor :</h5>
+    </div>
+    <div class="col-sm-3">
+      <h5 class="text-muted">{{complaint.wholename}}</h5>
+    </div>
+    <div class="col-sm-3">
+      <h5 class="text-muted">Job Role :</h5>
+    </div>
+    <div class="col-sm-3">
+      <h5 class="text-muted">{{complaint.job_role}}</h5>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class ="row">
+    <div class="col-sm-3">
+      <h5 class="text-muted">Complaint :</h5>
+    </div>
+    <div class="col-sm-9">
+      <h5 class="text-muted" highlight="complaint.comment" keywords="complaint.comment_highlight"></h5>
+    </div>    
+  </div>
+
+  <div class ="row">
+    <div class="col-sm-3">
+      <h5 class="text-muted">Initial Response :</h5>
+    </div>
+    <div class="col-sm-9">
+      <h5 class="text-muted" highlight="complaint.initial_response" keywords="complaint.response_highlight"></h5>
+    </div>    
+  </div>
+
+  <div class ="row">
+    <div class="col-sm-3">
+      <h5 class="text-muted">Primary Resolution :</h5>
+    </div>
+    <div class="col-sm-9">
+      <h5 class="text-muted">{{complaint.solution}} </h5>
+    </div>    
+  </div>
+
+  <div class ="row">
+    <div class="col-sm-3">
+      <h5 class="text-muted">Download :</h5>
+    </div>
+    <div class="col-sm-9">
+      <a ng-repeat="path in complaint.download_array" href="{{'/' + path}}" download><i class="fa fa-file-o" style="font-size: 20px; margin-right: 15px; margin-top: 7px"></i></a> 
+    </div>    
+  </div>
+
+  <div style="height: 300px; overflow-y: auto">
+    <div class="m-b b-l m-l-md streamline" >
+        <div ng-repeat="row in comment_list" style="margin-bottom: 15px">
+          <a class="pull-left thumb-sm avatar m-l-n-md">
+            <object width="30" height="30" data="/frontpage/img/default_photo.png" type="image/png">
+              <img src="{{row.picture}}" width="30" height="30">
+            </object>  
+          </a>          
+          <div class="m-l-lg panel b-a">
+            <div class="panel-heading pos-rlt b-b b-light">
+              <span class="arrow left"></span>                    
+              <a href>{{row.wholename}}</a>
+              <label class="label bg-success m-l-xs">{{row.job_role}}</label> 
+              <span class="text-muted m-l-sm pull-right">
+                <i class="fa fa-clock-o"></i>
+                  {{getTime(row)}}
+              </span>
+            </div>
+            <div class="panel-body">
+              <div ng-bind-html="row.comment"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <hr/>
+
+  <div class="row">
+    <button type="button" class="btn btn-sm btn-success pull-right text-uc m-t-n-xs" ng-click="ok()"><strong>OK</strong></button>
+  </div>
+
+</div>

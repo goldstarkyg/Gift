@@ -1,0 +1,205 @@
+<style>
+    button {
+        pointer: cursor;
+    }
+
+    input[type=file] {
+        width: 150px;
+        height: 20px;
+    }
+</style>
+<script type="text/ng-template" id="locationTypeahead.html">
+    <a>
+        <span ng-bind="match.model.name"></span><br>
+        <span style="font-size: 10px" ng-bind="match.model.type"></span><br>
+    </a>
+</script>
+<script type="text/ng-template" id="partTypeahead.html">
+    <a>
+        <span ng-bind="match.model.name"></span><br>
+        <span style="font-size: 10px" ng-bind="match.model.type"></span><br>
+    </a>
+</script>
+<div class="wrapper" ng-style="{'height': ticketlist_height, 'overflow-y': 'auto'}">
+  	<div>
+      <uib-accordion close-others="false">
+        <div uib-accordion-group is-open="true">
+          <uib-accordion-heading>
+          	<div class="">
+  						<label class="font-bold"><i class="glyphicon glyphicon-user text-default"></i>&nbsp;&nbsp;Requestor Details</label>
+  					</div>
+          </uib-accordion-heading>
+          <div>
+  	        <form class="form-horizontal form-validation">
+  						<div class="label-group col-sm-12">
+                  <div class="col-sm-2 control-label text-muted">Requestor Name</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{[issue.first_name] + [' '] + [issue.last_name]}}</div>
+                  <div class="col-sm-2 control-label text-muted">Employee ID</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.employee_id}}</div>                        
+              </div>
+             
+              <div class="label-group col-sm-12">
+                  <div class="col-sm-2 control-label text-muted">Department</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.department}}</div>
+                  <div class="col-sm-2 control-label text-muted">Job Role</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.job_role}}</div>                        
+              </div>
+              
+  	        </form>
+          </div>
+        </div>
+      </uib-accordion>
+  	</div>
+  <div>
+      <uib-accordion close-others="false">
+        <div uib-accordion-group is-open="true">
+          <uib-accordion-heading>
+          	<div class="">
+  						<label class="font-bold"><i class="glyphicon glyphicon-user text-default"></i>&nbsp;&nbsp;Issue Details</label>
+  						<div class="pull-right" style="margin-top: -4px">
+  							<div class="btn-group" ng-show="issue.status=='Pending'|| issue.status=='Re-Opened'">
+                  <button type="button" class="btn btn-dark btn-sm" ng-click="inProgress()">
+                    <span class="text-info"><i class="fa fa-check"></i>&nbsp;In-Progress</span>
+                  </button>
+                  <button type="button" class="btn btn-dark btn-sm" ng-click="onReject()" style="margin-left: 5px">
+                    <span class="text-danger"><i class="fa fa-check"></i>&nbsp;Reject</span>
+                  </button>
+                  
+                </div>
+              </div>
+  					</div>
+          </uib-accordion-heading>
+          <div>
+  	        <form class="form-horizontal form-validation">
+  						<div class="label-group col-sm-12">
+                  <div class="col-sm-2 control-label text-muted">Severity</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.sev}}</div>
+                  <div class="col-sm-2 control-label text-muted">Status</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.status}}</div>                        
+              </div>
+             
+              <div class="label-group col-sm-12">
+                  <div class="col-sm-2 control-label text-muted">Category</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.category}}</div>
+                  <div class="col-sm-2 control-label text-muted">Sub-Category</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.subcategory}}</div>                        
+              </div>
+              <div class="label-group col-sm-12">
+                  <div class="col-sm-2 control-label text-muted">Subject</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.subject}}</div>
+                  <div class="col-sm-2 control-label text-muted">Issue</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.issue}}</div>                        
+              </div>
+               <div class="label-group col-sm-12" ng-show="issue.sendflag==1">
+                  <div class="col-sm-2 control-label text-muted">Reason for Reject</div>
+                  <div class="col-sm-4 control-label font-bold" style="text-align: left">{{issue.reject}}</div>
+                                         
+              </div>
+             <div class="label-group col-sm-12">
+            <div class="col-sm-2 control-label text-muted">Download</div>
+            <div class="col-sm-10 control-label" style="text-align: left">
+              <a ng-repeat="upload in issue.sub_download_array" ng-href="{{'/' + upload}}" download><i class="fa fa-file-o thumb-xs avatar" style="font-size: 20px; margin-right: 15px;width: 25px"><i class="busy md b-white bottom" ng-click="removeFile($index);$event.stopPropagation();"></i></i></a>                 
+              <a ng-if="issue.sub_download_array.length < 1" style="font-style: italic;">No Attachment</a>  
+            </div>
+          </div>
+                   
+                        
+              
+  	        </form>
+          </div>
+        </div>
+      </uib-accordion>
+  	</div>
+<!--
+  	<div ng-show="issue.status=='Rejected'">
+      <uib-accordion close-others="false">
+        <div uib-accordion-group is-open="true">
+          <uib-accordion-heading>
+          	<div class="">
+  						<label class="font-bold"><i class="glyphicon glyphicon-user text-default"></i>&nbsp;&nbsp;Reason For Reject</label>
+  						<div class="pull-right" style="margin-top: -4px">
+  							<div class="btn-group" ng-hide="issue.sendflag == 1">
+                  <button type="button" class="btn btn-dark btn-sm" ng-click="onSend()">
+                    <span class="text-success"><i class="fa fa-check"></i>&nbsp;Send</span>
+                  </button>
+                  
+                  
+                </div>
+              </div>
+  						
+              </div>
+
+  					
+          </uib-accordion-heading>
+          <div>
+  	        <form class="form-horizontal form-validation">
+  					
+
+             
+       		<div class="label-group col-sm-12">
+                  <div class="col-sm-2 control-label text-muted">Reason:</div>
+                  <div class="col-sm-10"><textarea type="text" spellcheck="true" class="form-control input-sm ng-pristine  ng-untouched ng-empty ng-invalid ng-invalid-required" rows="2" ng-model="issue.reject" style="resize:none" required="" ng-disabled="issue.sendflag == 1"></textarea></div>
+                  </div>
+            </form>
+          </div>
+        </div>
+      </uib-accordion>
+  	</div>
+-->
+  	
+  	<div ng-show="issue.status=='In-Progress' || issue.status=='Resolved' || issue.status=='Closed'">
+      <uib-accordion close-others="false">
+        <div uib-accordion-group is-open="true">
+          <uib-accordion-heading>
+          	<div class="">
+  						<label class="font-bold"><i class="glyphicon glyphicon-user text-default"></i>&nbsp;&nbsp;Additional Information</label>
+  						<div class="pull-right" style="margin-top: -4px">
+  							<div class="btn-group" ng-hide="issue.status=='Resolved'">
+                  <button type="button" class="btn btn-dark btn-sm" ng-click="onResolve()">
+                    <span class="text-success"><i class="fa fa-check"></i>&nbsp;Resolve</span>
+                  </button>
+                  
+                  
+                </div>
+              </div>
+
+  					</div>
+          </uib-accordion-heading>
+          <div>
+  	        <form class="form-horizontal form-validation">
+  					 <div class="label-group col-sm-12" style="margin-top: 15px">
+	  					 <div class="col-sm-2 control-label text-muted">Additional Files:</div>
+            <div class="col-sm-2 control-label">          
+              <button class="btn btn-dark btn-sm" ngf-select="uploadFiles($files)" multiple ngf-max-files="5"
+              	ngf-max-size="10MB" ngf-accept="'image/*,application/pdf'"
+              	ngf-pattern="'image/*,application/pdf'" ngf-capture="'camera'"
+              	ng-disabled="issue.status == 'Resolved' || issue.status=='Closed'">
+                <span class="text-success font-bold"><i class="fa fa-upload"></i>&nbsp;Select Files</span></button>
+            </div>
+            <div class="col-sm-10 ">
+              <ul>
+                  <li ng-repeat="f in files" style="font:smaller">
+                      {{f.name}}
+                  </li>
+              </ul>
+              <uib-progressbar ng-show="progress >= 0" class="progress-striped progress-sm" style="margin: 5px" value="progress" type="info">                  
+              </uib-progressbar>                
+              {{errorMsg}}
+            </div>  
+          </div>
+
+             
+       		<div class="label-group col-sm-12">
+                  <div class="col-sm-2 control-label text-muted">Resolution:</div>
+                  <div class="col-sm-10"><textarea type="text" spellcheck="true" class="form-control input-sm ng-pristine  ng-untouched ng-empty ng-invalid ng-invalid-required" rows="2" ng-model="issue.resolution" style="resize:none" required="" ng-disabled="issue.status == 'Resolved'|| issue.status=='Closed'"></textarea></div>
+       		</div>
+              
+  	        </form>
+          </div>
+        </div>
+      </uib-accordion>
+  	</div>
+
+  	
+</div>
+

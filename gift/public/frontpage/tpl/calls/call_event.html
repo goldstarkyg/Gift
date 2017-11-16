@@ -1,0 +1,38 @@
+<div style="width: 250px; z-index: 5" ng-show="event_flag==1">
+  <div class="panel panel-default" style="margin-bottom: 10px;{{call_alarm_css}}">
+    <div class="panel-heading">
+      <div class="clearfix">
+        <div class="clear">
+          <div class="h3 m-t-xs m-b-xs">
+            {{agent_status.caller_name}}
+            <i class="fa fa-circle text-success pull-right text-xs m-t-sm"></i>
+          </div>
+          <small class="text-muted">Origin - {{agent_status.caller.national}}</small>
+        </div>
+      </div>
+    </div>
+    <div class="list-group no-radius alt">
+      <a class="list-group-item" href>
+        <span class="badge bg-light">{{agent_status.ticket.callerid}}</span>
+        Caller ID
+      </a>
+      <a class="list-group-item" href>
+        <span class="badge bg-light">{{agent_status.status}}</span>
+        Status
+      </a>
+      <a class="list-group-item" href>
+        <span class="badge bg-light">{{agent_status.wholename}}</span>
+        Agent Name
+      </a>
+      <a class="list-group-item" href>
+        <span class="badge bg-light">{{agent_status.extension}}</span>
+        Extension Number
+      </a>
+      <a class="list-group-item" href>
+        <span class="badge bg-light">{{elapse_time | duration:'hh:mm:ss'}}</span>
+        <i class="fa fa-eye fa-fw text-muted"></i>
+        Duration
+      </a>
+    </div>
+  </div>
+</div>

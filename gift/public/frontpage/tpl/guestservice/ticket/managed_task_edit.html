@@ -1,0 +1,194 @@
+<div class ="row ticket">
+    <div class="col-sm-6">
+        <h4 class="text-primary font-bold">Managed Task # {{gs.getTicketNumber(tab)}}</h4>
+    </div>
+
+    <div class="col-sm-3">
+        <span class="m-l-sm label {{gs.getStatusCssInEdit(task)}}">{{gs.getStatus(task)}} <i ng-show="gs.getPauseState(task)" class="fa icon-control-play text"></i></span>
+    </div>
+    <div class="col-sm-3">
+        <p class="text-muted font-bold pull-right" >{{task.start_date_time}}</p>
+    </div>
+</div>
+
+<div ng-show="task.subtype == 1">
+    <div class ="row">
+        <div class="col-sm-12">
+            <h5 class="text-muted font-bold">Room # {{task.room}}</h5>
+        </div>
+    </div>
+
+    <div class ="row">
+        <div class="col-sm-12">
+            <h5 class="text-muted font-bold">Guest : {{task.guest_name}}</h5>
+        </div>
+    </div>
+</div>
+
+<div ng-show="task.subtype == 2">
+    <div class ="row">
+        <div class="col-sm-6">
+            <h5 class="text-muted">Location : {{task.lgm_name}}</h5>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="text-muted pull-right">Type : {{task.lgm_type}}</h5>
+        </div>
+    </div>
+    <div class ="row">
+        <div class="col-sm-6">
+            <h5 class="text-muted">Requester : {{task.requester_name}}</h5>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="text-muted pull-right">Job Role : {{task.requester_job_role}}</h5>
+        </div>
+    </div>
+
+    <div class ="row" ng-show="task.notify_flag">
+        <div class="col-sm-6">
+            <h5 class="text-muted">Mobile : {{task.requester_mobile}}</h5>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="text-muted pull-right">Email : {{task.requester_email}}</h5>
+        </div>
+    </div>
+</div>
+
+<div ng-show="task.subtype == 6">
+    <div class ="row" ng-show="!task.group_flag">
+        <div class="col-sm-6">
+            <h5 class="text-muted">Assigener Name : {{task.manage_user_name}}</h5>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="text-muted pull-right">Assigener Mobile : {{task.manage_user_mobile}}</h5>
+        </div>
+    </div>
+
+    <div class ="row" ng-show="task.group_flag">
+        <div class="col-sm-12">
+            <h5 class="text-muted">Group Name : {{task.manage_user_group}}</h5>
+        </div>
+    </div>
+</div>
+
+<div ng-show="task.subtype == 1 || task.subtype == 2">
+    <hr/>
+    <div class ="row">
+        <div class="col-sm-12">
+            <h5 class="text-muted font-bold">{{getTicketRequestName(task)}}</h5>
+        </div>
+    </div>
+
+    <div class ="row">
+        <div class="col-sm-6">
+            <h5 class="text-muted">Department : {{task.department}}</h5>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="text-muted pull-right">Function : {{task.function}}</h5>
+        </div>
+    </div>
+
+    <div class ="row">
+        <div class="col-sm-6">
+            <h5 class="text-muted">Staff : {{task.wholename}}</h5>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="text-muted pull-right">Device : {{task.device}}</h5>
+        </div>
+    </div>
+
+    <div class ="row">
+        <div class="col-sm-6">
+            <h5 class="text-muted">Priority : {{task.priority_name}}</h5>
+        </div>
+
+        <div class="col-sm-6" ng-show="task.status_id == 1 && task.running == 0">
+            <h5 class="text-muted pull-right;" >Duration({{task.max_time * 1000 | duration:'mm'}}mins) :
+                <label class="field_result" style="white-space:nowrap;{{remain_time_style}}">{{::(remain_time | duration:'hh:mm:ss')}}</label>
+            </h5>
+        </div>
+        <div class="col-sm-6" ng-show="task.status_id == 1 && task.running == 1" >
+            <h5 class="text-muted pull-right;" >Duration({{task.max_time * 1000 | duration:'mm'}}mins) :
+                <label class="field_result" style="white-space:nowrap;{{remain_time_style}}">{{remain_time | duration:'hh:mm:ss'}}</label>
+            </h5>
+        </div>
+        <div class="col-sm-6" ng-show="task.status_id == 2 || task.running == 3 || task.status_id == 5" >
+            <h5 class="text-muted pull-right;" >Duration({{task.max_time * 1000 | duration:'mm'}}mins) :
+                <label class="field_result" style="white-space:nowrap;{{remain_time_style}}">{{remain_time | duration:'hh:mm:ss'}}</label>
+            </h5>
+        </div>
+        <div class="col-sm-6" ng-show="task.status_id == 4 || task.running == 0" >
+            <h5 class="text-muted pull-right;" >Duration({{task.max_time * 1000 | duration:'mm'}}mins) :
+                <label class="field_result" style="white-space:nowrap;{{remain_time_style}}">{{remain_time | duration:'hh:mm:ss'}}</label>
+            </h5>
+        </div>
+
+    </div>
+</div>
+
+<div class ="row">
+    <div class="col-sm-12">
+        <h5 class="text-muted">Comment : {{task.custom_message}}</h5>
+    </div>
+</div>
+
+<hr/>
+
+<div class ="row" ng-hide="task.status_id == 0 || task.status_id == 3 || task.status_id == 4">  <!-- Complete, Timeout, Cancel -->
+    <div class="col-sm-3">
+        <h5 class="font-bold">Update Status : </h5>
+    </div>
+    <div class="col-sm-3">
+        <select class='form-control input-sm m-b' ng-model="task.action" ng-change="onChangeAction(task.action)"
+                ng-options="action for action in actions">
+        </select>
+    </div>
+    <button type="button" style="margin-right: 15px" class="btn btn-success btn-sm pull-right" ng-click="changeTask()">Update</button>
+
+</div>
+
+<div class ="row">
+    <div class="col-sm-3">
+        <h5 ng-show="task.action == 'Complete'" class="font-bold">By : </h5>
+    </div>
+
+    <div class="col-sm-4" ng-show="task.action == 'Complete'">
+        <input type="text" class="form-control input-sm" ng-model="task.assigne_name">
+    </div>
+</div>
+
+<div class ="row" ng-show="task.action == 'Cancel'">
+    <div class="col-sm-3">
+        <h5 class="font-bold">Reason : </h5>
+    </div>
+
+    <div class="col-sm-4"  class="font-bold">
+        <textarea class="form-control input-sm" rows="1" ng-model="task.reason" style="resize:none"></textarea>
+    </div>
+</div>
+
+<div class="table table-responsive">
+    <label class="font-bold"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;&nbsp;Ticket History</label>
+    <table  st-table="ticketlist" class="table ticket table-striped b-t b-light">
+        <thead class="tblhead-sm" style="font-size: .7vw">
+            <tr>
+                <th class="text-center"><b>Date & Time</b></th>
+                <th class="text-center"><b>Status</b></th>
+                <th class="text-center"><b>Type</b></th>
+                <th class="text-center"><b>Comment</b></th>
+                <th class="text-center"><b>Method</b></th>
+                <th class="text-center"><b>User</b></th>
+            </tr>
+        </thead>
+        <tbody ng-hide="isLoading">
+            <tr ng-repeat="row1 in messageList">
+                <td><span>{{row1.log_time | mydatetime}}</span></td>
+                <td><span>{{row1.status}}</span></td>
+                <td><span>{{row1.log_type}}</span></td>
+                <td><span>{{row1.log_type == 'Timeout' ? 'System' : row1.comment}}</span></td>
+                <td><span>{{row1.method}}</span></td>
+                <td><span>{{row1.wholename}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

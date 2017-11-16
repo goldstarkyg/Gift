@@ -1,0 +1,8 @@
+1) Liver server/config.xml mysql setting
+2) Interface /config.xml hotelync url
+3) setting value on db
+6) run hotelync web service
+7) run redis.
+8) run mogodb(mongod)
+9) config channel
+10) run interface

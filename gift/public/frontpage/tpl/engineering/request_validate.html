@@ -1,0 +1,197 @@
+<style>
+    p::first-letter {
+        text-transform: capitalize;
+    }
+</style>
+
+
+
+<script type="text/ng-template" id="request_detail.html">
+    <div ng-include="'tpl/engineering/request_detail.html'"></div>
+</script>
+
+<script type="text/ng-template" id="request_workorder.html">
+    <div ng-include="'tpl/engineering/request_workorder.html'"></div>
+</script>
+
+
+<div ng-show="eng.history_view"
+     style="position: absolute;
+	right:150px; top: 135px; z-index:11;
+	width:600px; background-color: #eeeded;
+	border-radius: 4px; border: 1px solid #dee5e7;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+    <div>
+        <p class="pull-left" style="margin-top: 8px;margin-left: 10px;">
+            <i class="glyphicon glyphicon-user"></i>&nbsp;<i class="fa fa-history"></i>&nbsp;Requestor History
+        </p>
+        <button class="btn btn-sm btn-icon bg-danger  pull-right" style="margin-top: 4px; margin-right: 4px"
+                data-toggle="tooltip" title="Close" data-placement="bottom" ng-click="hideRequestorHistory()">
+            <i class="fa fa-times fa-fw"></i>
+        </button>
+    </div>
+
+    <div class="table table-responsive" style="overflow-y: scroll;height:400px;">
+        <table class="table table-sm">
+            <thead>
+            <tr class="tblhead-sm">
+                <th class="text-center">Date</th>
+                <th class="text-center">Ticket#</th>
+                <th class="text-center">Subject</th>
+                <th class="text-center">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-xs" ng-repeat="row in requestor_history" >
+                <td class="text-center" style="padding: 8px">{{ row.created_at | mydatetime : 'D MMM YYYY hh:mm a'}}</td>
+                <td class="text-center" style="padding: 8px"><u style="cursor: pointer" ng-click="showRequest(row)">{{getRequestNumber(row)}}</u></td>
+                <td style="padding: 8px">{{row.subject}}</td>
+                <td class="text-center" style="padding: 8px">
+					    <span ng-class="{'label' : true, 'm-l-sm': true,
+								'bg-wakeup-pending': row.status == 'Pending',
+								'bg-wakeup-waiting': row.status == 'On Hold',
+								'bg-wakeup-success': row.status == 'Completed',
+								'bg-wakeup-canceled': row.status == 'Rejected',
+								'bg-wakeup-in-progress': row.status == 'In Progress',
+								'bg-complaint-ack': row.status == 'Default',
+								}">{{row.status}}
+							</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<uib-accordion close-others="false">
+    <div class="wrapper">
+        <!-- - - - - REQUESTOR DETAIL - - - - -->
+
+        <div class="panel panel-default" style="border-radius: 4px">
+            <div class="panel-heading">
+                <div class="pull-left">
+                    <label class="text-sm font-bold"><i class="fa fa-male text-default"></i>&nbsp;&nbsp;Requestor Detail
+                        <a class="dropdown pos-stc" ng-show="requestor_history.length > 0">
+                            <label ng-click="viewRequestorHistory()" ng-show="requestor_history.length > 0" class="text-danger font-bold text-xs"
+                                   style="cursor: pointer"><i class="fa fa-history text-danger"></i>&nbsp;{{requestor_history.length}} Previous request
+                            </label>
+                        </a>
+                    </label>
+                </div>
+                <!--<div class="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                    <!--<a ng-click="onDownloadPDF()">-->
+                        <!--<i class="fa fa-file-pdf-o" style="font-size: 20px; color:red" aria-hidden="true" title="Detailed PDF download"></i>-->
+                    <!--</a>-->
+                <!--</div>-->
+
+                <div class="pull-right" style="margin-top: -4px">
+                    <button type="button" class="btn btn-sm m-b-xs w-xs btn-dark font-bold" ng-click="onReject(eng)"
+                            ng-show="eng.status == 'Default' || eng.status == 'Rejected'" >
+                        <span class="text-danger"><i class="icon-dislike"></i>&nbsp;Reject</span>
+                    </button>
+                    <button type="button" class="btn btn-sm m-b-xs w-xs btn-dark font-bold" ng-click="onClose($event)"
+                            ng-show="eng.status == 'Default' || eng.status == 'Rejected'" >
+                        <span class="text-danger"><i class="fa fa-window-close"></i>&nbsp;Close</span>
+                        <!--when click status with Close, will change with Default -->
+                    </button>
+                </div>
+                <br>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="label-group col-sm-12">
+                        <div class="col-sm-2 control-label text-muted">Requestor</div>
+                        <div class="col-sm-4 control-label" style="text-align: left"><strong>{{eng.wholename}}</strong></div>
+                        <div class="col-sm-2 control-label text-muted">Job Role</div>
+                        <div class="col-sm-4 control-label" style="text-align: left"><strong>{{eng.job_role}}</strong></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- - - - - /REQUESTOR DETAIL - - - - -->
+
+        <!-- - - - - /Request DETAIL - - - - -->
+
+        <div class="panel panel-default" style="border-radius: 4px">
+            <div class="panel-heading">
+                <label class="text-sm font-bold"><i class="fa fa-comment text-default"></i>&nbsp;&nbsp;Request Detail</label>
+                <div class="pull-right">
+					<span class="" ng-class="{'label' : true, 'm-l-sm': true,
+							'bg-wakeup-pending': eng.status == 'Pending',
+							'bg-wakeup-waiting': eng.status == 'On Hold',
+							'bg-wakeup-progress': eng.status == 'In Progress',
+							'bg-wakeup-canceled': eng.status == 'Rejected',
+							'bg-wakeup-in-success': eng.status == 'Completed',
+							'bg-complaint-ack': eng.status == 'Default',
+									    						}">{{eng.status}}
+					</span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="form-group label-group">
+                        <div class="col-sm-2 control-label text-muted">Created</div>
+                        <div class="col-sm-4 control-label" style="text-align: left"><strong>{{eng.created_at | mydatetime : 'D MMM YYYY hh:mm a'}}</strong></div>
+                        <div class="col-sm-2 control-label text-muted">Location</div>
+                        <div class="col-sm-4 control-label" style="text-align: left"><strong>{{eng.lgm_type }} - {{eng.lgm_name}}</strong></div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 15px">
+                        <label class="col-sm-2 control-label text-muted">Property</label>
+                        <div class="col-sm-4 control-label" style="text-align: left">{{eng.property_name}}</div>
+                        <label class="col-sm-2 control-label text-muted">Priority</label>
+                        <div class="col-sm-4 control-label" style="text-align: left">
+                            {{eng.priority}}
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 15px">
+                        <label class="col-sm-2 control-label text-muted">Category</label>
+                        <div class="col-sm-4 control-label" style="text-align: left">
+                            {{eng.category_name}}
+                        </div>
+                        <label class="col-sm-2 control-label text-muted">Sub Category</label>
+                        <div class="col-sm-4 control-label" style="text-align: left">
+                            {{eng.sub_category_name}}
+                        </div>
+                    </div>
+
+                    <div class="form-group label-group">
+                        <div class="col-sm-2 control-label text-muted">Subject</div>
+                        <div class="col-sm-9 control-label" style="text-align: left">
+                            {{eng.subject}}
+                        </div>
+                    </div>
+
+                    <div class="form-group label-group" >
+                        <div class="col-sm-2 control-label text-muted">Issue</div>
+                        <div class="col-sm-10 control-label" style="text-align: left">{{eng.comment}}</div>
+                    </div>
+
+                    <div class="form-group label-group">
+                        <div class="col-sm-2 control-label text-muted">Download</div>
+                        <div class="col-sm-10 control-label" style="text-align: left">
+                            <a ng-repeat="path in eng.download_array" href="{{'/' + path}}" download><i class="fa fa-file-o" style="font-size: 20px; margin-right: 15px"></i></a>
+                            <a ng-if="eng.download_array.length < 1" style="font-style: italic;">No Attachment</a>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="padding-right: 18px">
+                        <div class="pull-right">
+                            <button type="button"
+                                    style="margin-right: 10px"
+                                    class="btn btn-sm m-b-xs w-xs btn-dark text-uc m-t-n-xs font-bold" style="margin-top: -3px" ng-click="accept(eng)"
+                                    ng-disabled="eng.status != 'Default' && eng.status != 'Rejected'" >
+                                <span class="text-info"><i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Accept</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</uib-accordion>
+

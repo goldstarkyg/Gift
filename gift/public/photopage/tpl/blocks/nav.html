@@ -1,0 +1,76 @@
+<!-- list -->
+<ul class="nav">
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+    <span translate="aside.nav.HEADER">Navigation</span>
+  </li>
+  <li>
+    <a class="auto" ui-sref="app.dashboard" >            
+      <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+      <span class="font-bold" translate="aside.nav.DASHBOARD">Dashboard</span>
+    </a>    
+  </li>    
+  <!--## user list ##-->
+   <li ng-class="{active:$state.includes('app.user')}">
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <b class="badge bg-info pull-right">{{usercount}}</b>
+      <i class="icon-user icon text-success-lter"></i>
+      <span>User</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span>User</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.user.list">
+          <span >User List</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.user.delete">
+          <span>Deleted User</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <!---->
+  <!--## photo list ##-->
+   <li ng-class="{active:$state.includes('app.photo')}">
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <b class="badge bg-info pull-right">{{photocount}}</b>
+       <i class="fa fa-product-hunt"></i>
+      <span>Photo</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span>Photo</span>
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="app.photo.list">
+          <span >Photo List</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <!----> 
+  <li ui-sref-active="active">
+    <a ui-sref="app.calendar">
+      <i class="glyphicon glyphicon-calendar icon text-info-dker"></i>
+      <span class="font-bold" translate="aside.nav.CALENDAR">Calendar</span>
+    </a>
+  </li>  
+  <li class="line dk"></li>
+
+</ul>
+<!-- / list -->

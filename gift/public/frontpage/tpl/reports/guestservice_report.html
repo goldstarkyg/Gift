@@ -1,0 +1,261 @@
+<div ng-controller="GuestserviceReportController">
+    <style>
+        .datetime .popover {
+            max-width: 650px;
+        }
+    </style>
+    <script type="text/ng-template" id="datetime_ranger.html">
+        <div style="width: 700px">
+            <div rg-range-picker="myDatetimeRange" labels="myDatetimeLabels"></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="tag-template">
+        <div class="tag-template">
+            <div class="right-panel">
+                <span>{{data.key}}</span>
+                <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="autocomplete-template">
+        <div class="autocomplete-template">
+            <div class="right-panel">
+                <span ng-bind-html="$highlight($getDisplayText())"></span><br>
+                <span style="font-size: 10px">{{data.type}}</span>
+            </div>
+        </div>
+    </script>
+    <!-------------------------------->
+    <div class="col-lg-12 col-centered">
+        <div class="panel-default">
+            <div class="panel-body form-horizontal" ng-show="!isHidden" style="`width:100%; margin: auto;">
+                <div class="row form-group" style="width:100%; margin:auto;">
+                    <div class="form-horizontal form-validation" style="float:left; width:100%; height:20%; display:inline-block;">
+                        <fieldset class="fieldset1" style="min-height:270px;">
+                            <legend><h5><i class="fa fa-columns"></i>&nbsp;&nbsp;Grouping</h5></legend>
+                            <div class="sfield1" >
+                                <div class="row form-horizontal" style="margin-bottom:3px;">
+                                    <label class="col-sm-5 control-label" style="white-space: nowrap;">Report Type : </label>
+                                    <div class="col-sm-7">
+                                        <select class='form-control' ng-model="report_type" ng-change="onChangeReportType()"
+                                                ng-options="type for type in reporttypes">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row form-horizontal" style="margin-bottom:3px;">
+                                    <label class="col-sm-5 control-label" style="white-space: nowrap;">Report By :</label>
+                                    <div class="col-sm-7">
+                                        <select class='form-control' ng-model="report_by" ng-change="onChangeReportBy()"
+                                                ng-options="type for type in reportby_list" >
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row form-horizontal">
+                                    <label class="col-sm-5 control-label" style="white-space: nowrap;">Chart Graph : </label>
+                                    <div class="col-md-7">                                        
+                                        <label class="i-switch m-t-xs m-r">
+                                            <input type="checkbox" ng-model="chart_graph_flag">
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                </div> 
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset2" style="min-height:270px;">
+                            <legend><h5><i class="glyphicon glyphicon-filter"></i>&nbsp;&nbsp;Apply filters</h5></legend>
+                            <div class="row form-horizontal">
+                                <div>
+                                    <!---->
+                                    <div ng-show="monthview" class="row form-horizontal" style="margin-bottom:3px; ">
+                                        <label class="col-sm-2 control-label" style="white-space: nowrap;">Period : </label>
+                                        <div class="dropdown col-sm-4">
+                                            <a class="dropdown-toggle" id="dropdown3" role="button" data-toggle="dropdown" data-target="#">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control"  ng-model="datetime.time">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                </div>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                <datetimepicker ng-model="datetime.date"
+                                                                data-datetimepicker-config="{startView:'month', minView:'month', dropdownSelector: '#dropdown3' }"
+                                                                data-before-render="beforeRender($view, $dates, $leftDate, $upDate, $rightDate)"/>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div ng-show="yearview" class="row form-horizontal" style="margin-bottom:3px; ">
+                                        <label class="col-sm-2 control-label" style="white-space: nowrap;">Period : </label>
+                                        <div class="dropdown col-sm-4">
+                                            <a class="dropdown-toggle" id="dropdown4" role="button" data-toggle="dropdown" data-target="#">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control"  ng-model="datetime.time">
+                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                </div>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                <datetimepicker ng-model="datetime.year"
+                                                                data-datetimepicker-config="{startView:'year', minView:'year', dropdownSelector: '#dropdown4' }"
+                                                                data-before-render="beforeRender($view, $dates, $leftDate, $upDate, $rightDate)"/>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!---->
+                                    <div ng-show="dateview" class="row form-horizontal" style="margin-bottom:3px; ">
+                                        <label class="col-sm-2 control-label" style="white-space: nowrap;">Period : </label>
+                                        <div class="datetime col-sm-4">
+                                            <input type="text" size="4" class="form-control" ng-model="time_range" uib-popover-template="'datetime_ranger.html'" popover-trigger="outsideClick" popover-placement="bottom">
+                                        </div>
+                                    </div>
+                                    <div ng-show="valid_flag[0]" class="row form-horizontal" style="margin-bottom:3px; ">
+                                        <label class="col-sm-2 control-label" style="white-space: nowrap;">Status : </label>
+                                        <div class="col-md-9">
+                                            <div ng-dropdown-multiselect="" options="status_tags" selected-model="status" checkboxes="true" extra-settings="status_tags_hint_setting" translation-texts="status_tags_hint" ng-multiselect-disabled="status_flag"></div>
+                                        </div>
+                                    </div>
+
+                                    <div ng-show="valid_flag[1]" class="row form-horizontal" style="margin-bottom:3px; ">
+                                        <label class="col-sm-2 control-label" style="white-space: nowrap;">Ticket Type : </label>
+                                        <div class="col-md-4">
+                                            <div ng-dropdown-multiselect="" options="ticket_type_tags" selected-model="ticket_type" checkboxes="true" extra-settings="ticket_type_tags_hint_setting" translation-texts="ticket_type_tags_hint"></div>
+                                        </div>
+                                        
+                                        <label class="col-sm-2 control-label" style="white-space: nowrap;">Escalated To Me : </label>
+                                        <div class="col-md-4">
+	                                    
+											<label class="i-switch m-t-xs m-r">
+												<input type="checkbox" ng-model="escalated_flag" ng-change="loadFiltersValue($query, '0')">
+												<i></i>
+											</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-horizontal">
+                                <div ng-show="valid_flag[2]" class="row form-horizontal">
+                                    <label class="col-sm-2 control-label" style="white-space: nowrap;">Department : </label>
+                                    <div class="col-md-9">
+                                        <tags-input ng-model="department_tags" placeholder="Add Department" replace-spaces-with-dashes="false" style="margin-top: -5px">
+                                            <auto-complete source="loadFiltersValue($query, 'Department')"
+                                                           min-length="0"
+                                                           debounce-delay="0"
+                                                           load-on-focus="true"
+                                                           load-on-empty="true"
+                                                           max-results-to-show="100"></auto-complete>
+                                        </tags-input>
+                                    </div>
+                                </div>
+                                <div ng-show="valid_flag[3]" class="row form-horizontal">
+                                    <label class="col-sm-2 control-label" style="white-space: nowrap;">Department Function : </label>
+                                    <div class="col-md-9">
+                                        <tags-input ng-model="department_function_tags" placeholder="Add Department Function" replace-spaces-with-dashes="false" style="margin-top: -5px">
+                                            <auto-complete source="loadFiltersValue($query, 'Department Function')"
+                                                           min-length="0"
+                                                           debounce-delay="0"
+                                                           load-on-focus="true"
+                                                           load-on-empty="true"
+                                                           max-results-to-show="100"></auto-complete>
+                                        </tags-input>
+                                    </div>
+                                </div>
+                                <div ng-show="valid_flag[4]" class="row form-horizontal">
+                                    <label class="col-sm-2 control-label" style="white-space: nowrap;">Location : </label>
+                                    <div class="col-md-9">
+                                        <tags-input ng-model="location_tags" display-property="name"
+                                                    replace-spaces-with-dashes="false"
+                                                    style="margin-top: -5px"
+                                                    min-length="0"
+                                                    template="tag-template" >
+                                            <auto-complete source="getLocationList($query)"
+                                                           min-length="0"
+                                                           debounce-delay="0"
+                                                           load-on-focus="true"
+                                                           load-on-empty="true"
+                                                           max-results-to-show="1000"
+                                                           template="autocomplete-template" ></auto-complete>
+                                        </tags-input>
+                                    </div>
+                                </div>
+                                <div ng-show="valid_flag[5]" class="row form-horizontal">
+                                    <label class="col-sm-2 control-label" style="white-space: nowrap;">Item : </label>
+                                    <div class="col-md-9">
+                                        <tags-input ng-model="item_tags" placeholder="Add Item" replace-spaces-with-dashes="false" style="margin-top: -5px">
+                                            <auto-complete source="loadFiltersValue($query, 'Item')"
+                                                           min-length="0"
+                                                           debounce-delay="0"
+                                                           load-on-focus="true"
+                                                           load-on-empty="true"
+                                                           max-results-to-show="100"></auto-complete>
+                                        </tags-input>
+                                    </div>
+                                </div>
+                                <div ng-show="valid_flag[6]" class="row form-horizontal">
+                                    <label class="col-sm-2 control-label" style="white-space: nowrap;">Staff : </label>
+                                    <div class="col-md-9">
+                                        <div ng-dropdown-multiselect=""   options="stafflist" selected-model="staff_ids" checkboxes="true" extra-settings="stafflist_hint_setting" translation-texts="stafflist_hint"></div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </fieldset>
+
+                        <div class="searchbox">
+                            <div class="row form-horizontal" style="margin-bottom:3px;">
+                                <button type="submit" class="btn btn-info" ng-click="onGenerateReport()">
+                                    <i class="fa fa-file-text"></i>&nbsp;&nbsp;Generate Report&nbsp;</button>
+                                <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+                            </div>
+                            <div class="row form-horizontal" style="margin-bottom:3px;">
+                                <button type="submit" class="btn btn-info" ng-if="auth_svc.isValidModule('app.reports.schedule')" ng-click="onShowSchedule()">
+                                    <i class="glyphicon glyphicon-calendar"></i>&nbsp;&nbsp;Schedule Report</button>
+                                <button type="submit" class="btn btn-info disabled" style="border:#a9a9a9;background-color:#a9a9a9" ng-if="!auth_svc.isValidModule('app.reports.schedule')">
+                                    <i class="glyphicon glyphicon-calendar"></i>&nbsp;&nbsp;Schedule Report</button>
+                                <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  class="wrapper" style="background-color: #ECEFF1; height: 40px; margin: 0px -15px 0px -15px">
+                <div class="col-md-4">
+                    <i class="icon-screen-desktop"></i>&nbsp;&nbsp;Preview
+                </div>
+
+                <div class="col-md-4 text-center" ng-click="onGetFrameHeight()">
+                    <span class="glyphicon" ng-class="isHidden ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'" ></span>
+                    <label style="cursor: pointer" ng-show="isHidden" ng-click="isHidden = !isHidden;" > Show Filters </label>
+                    <label style="cursor: pointer" ng-show="!isHidden" ng-click="isHidden = !isHidden;" > Hide Filters </label>
+                    <span class="glyphicon" ng-class="isHidden ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'" ></span>
+                </div>
+
+                <div class="col-md-4" style="text-align: right">
+                    <!--<a href="/frontend/report/callaccount_pdfreport?{{param}}"><i class="fa fa-file-pdf-o" style="font-size: 30px;" aria-hidden="true"></i></a>-->
+                    <i class="fa fa-download" style="padding-bottom:10px;"></i>&nbsp;&nbsp;Download : &nbsp;&nbsp;
+                    <!--<a href="/frontend/report/guestservice_pdfreport?{{param}}"><i class="fa fa-file-pdf-o" style="font-size: 30px;" aria-hidden="true"></i></a>-->
+                    <!--<a href="/frontend/report/guestservice_excelreport?{{param}}"><i class="fa fa-file-excel-o" style="font-size: 30px; margin-left: 20px; margin-right: 10px" aria-hidden="true"></i></a>-->
+                    <a ng-click="onDownloadPDF()">
+                        <i class="fa fa-file-pdf-o" style="font-size: 18px; color:red; margin-right: 20px" aria-hidden="true"
+                           data-toggle="tooltip" title="Download in PDF format"></i>
+                    </a>
+                    <a ng-click="onDownloadExcel()">
+                        <i class="fa fa-file-excel-o" style="font-size: 18px; color:green; margin-right: 20px" aria-hidden="true"
+                           data-toggle="tooltip" title="Download in Excel format"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!--<div class="line line-dashed b-b line-lg"></div>-->
+            <div class="form-horizontal" style="width:97%; margin: auto;">
+                <div class="row" >
+                    <div style="{{iframe_style}}" >
+                        <iframe src="{{param}}" frameborder="0" style="overflow:hidden" height="94%" width="100%">
+                            <p>Your browser does not support iframes.</p>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------->
+
+</div>

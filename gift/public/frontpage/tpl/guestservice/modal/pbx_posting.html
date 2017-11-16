@@ -1,0 +1,117 @@
+<form class="form-horizontal form-validation" ng-submit="onPostPBX()"> 
+    
+    <div class="wrapper-md1 col-centered" style="width: 100%;">
+        <div class="panel panel-default">
+            <div class="panel-heading">				
+                <label class="text-sm font-bold"><i class="fa fa-dollar text-default"></i>&nbsp;&nbsp; PBX</label>
+
+                <label class="i-switch m-t-xs m-r pull-right">
+                    <input type="checkbox" ng-model="guest.save_flag" checked>
+                    <i></i>
+                </label>
+			</div>
+            <div class="panel-body">
+                                     
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-muted">Action</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="guest.action" ng-change="onChangeAction()"
+                            ng-options="type for type in pbx_action_type_list">
+                        </select>
+                    </div>    
+                </div>                            
+                                                    
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-muted">Room</label>
+                    <div class="col-sm-4">
+                        <input type="text" ng-model="guest.room" class="form-control input-sm" placeholder="Enter room number"
+                            uib-typeahead="room.room for room in roomlist | filter:$viewValue | limitTo:10"
+                            typeahead-editable="false"
+                            typeahead-min-length="0"
+                            typeahead-on-select="onRoomSelect($item, $model, $label)"
+                            required 
+                            >
+                    </div>
+                    <label class="col-sm-2 control-label text-muted" ng-show="guest.action == 'Checkin' || guest.action == 'Checkout' || guest.action == 'Guest Change'">Guest Name</label>
+                    <div class="col-sm-4" ng-show="guest.action == 'Checkin' || guest.action == 'Checkout' || guest.action == 'Guest Change'">
+                        <input type="text" ng-model="guest.guest_name" class="form-control input-sm" placeholder="Enter guest name">
+                    </div>
+
+                    <label class="col-sm-2 control-label text-muted" 
+                        ng-show="guest.action == 'Message Lamp' || guest.action == 'Class Of Service' || guest.action == 'Do Not Disturb'">Value</label>
+                    <div class="col-sm-4" ng-show="guest.action == 'Message Lamp' || guest.action == 'Class Of Service' || guest.action == 'Do Not Disturb'">
+                        <input type="text" ng-model="guest.value" class="form-control input-sm" placeholder="Enter Value" ng-required="guest.action == 'Message Lamp' || guest.action == 'Class Of Service' || guest.action == 'Do Not Disturb'">
+                    </div>
+                </div>                             
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-muted">Guest Number</label>                    
+                    <div class="col-sm-4">
+                        <input type="text" ng-model="guest.guest_id" class="form-control input-sm">
+                    </div>
+
+                    <label class="col-sm-2 control-label text-muted">Guest Group</label>                    
+                    <div class="col-sm-4">
+                        <input type="text" ng-model="guest.guest_group" class="form-control input-sm">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-muted">Language</label>                    
+                    <div class="col-sm-4">
+                        <input type="text" ng-model="guest.language" class="form-control input-sm">
+                    </div>
+
+                    <label class="col-sm-2 control-label text-muted">Arrival Date</label>                    
+                    <div class="col-sm-4">
+                        <input type="text" ng-model="guest.arrival" class="form-control input-sm">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-muted">Guest/VIP</label>                    
+                    <div class="col-sm-4">
+                        <input type="text" ng-model="guest.vip" class="form-control input-sm">
+                    </div>
+
+                    <label class="col-sm-2 control-label text-muted">Departure Date</label>                    
+                    <div class="col-sm-4">
+                        <input type="text" ng-model="guest.departure" class="form-control input-sm">
+                    </div>
+                </div>    
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-muted">First Name</label>                    
+                    <div class="col-sm-4">
+                        <input type="text" ng-model="guest.first_name" class="form-control input-sm">
+                    </div>
+
+                    <label class="col-sm-2 control-label text-muted">Title</label>                    
+                    <div class="col-sm-4">
+                        <input type="text" ng-model="guest.title" class="form-control input-sm">
+                    </div>
+                </div>   
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-muted">Check In Share</label>
+                    <div class="col-sm-4">
+                        <label class="md-check" style="margin-top: 7px">
+                            <input type="checkbox" ng-model="guest.share">
+                            <i class="green"></i>                                
+                        </label>
+                    </div>    
+                </div>        
+
+                <div class="row" style="margin-top: 20px; margin-right: 7px">
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-sm btn-dark text-uc m-t-n-xs"><strong>
+                        	<span class="text-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></strong></button>
+                        <button type="submit" class="btn btn-sm btn-dark text-uc m-t-n-xs" ng-click="cancel()"><strong>
+                        	<span class="text-danger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></strong></button>
+                    </div>
+                </div>       
+               
+            </div>
+        </div>
+    </div>
+</form>

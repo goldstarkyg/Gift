@@ -1,0 +1,52 @@
+<div>	
+	<form class="form-horizontal">
+		<div class="form-group label-group" style="margin: 0px">
+			<div class="col-sm-2 control-label text-muted">ID</div>
+			<div class="col-sm-4 control-label" style="text-align: left">
+				<strong>{{current_session.id}}</strong>
+			</div>
+			<div class="col-sm-2 control-label text-muted">Date</div>
+			<div class="col-sm-4 control-label" style="text-align: left">
+				<strong>{{current_session.created_at}}</strong>
+			</div>						
+		</div>
+		<div class="form-group label-group" style="margin: 0px">
+			<div class="col-sm-2 control-label text-muted">Guest Name</div>
+			<div class="col-sm-4 control-label" style="text-align: left">
+				<strong>{{current_session.guest_name}}</strong>
+			</div>				
+		</div>
+		<div class="form-group label-group" style="margin: 0px">
+			<div class="col-sm-2 control-label text-muted">Room</div>
+			<div class="col-sm-4 control-label" style="text-align: left">
+				<strong>{{current_session.room}}</strong>
+			</div>
+			<div class="col-sm-2 control-label text-muted">Room Type</div>
+			<div class="col-sm-4 control-label" style="text-align: left">
+				<strong>{{current_session.room_type}}</strong>
+			</div>						
+		</div>
+
+		<div class="form-group label-group" style="margin: 0px">
+			<div class="col-sm-2 control-label text-muted">Duration</div>
+			<div class="col-sm-4 control-label" style="text-align: left">
+				<strong>{{current_session.duration}}</strong>
+			</div>				
+		</div>
+
+		<div class="form-group label-group" style="margin: 0px">
+			<div class="col-sm-2 control-label text-muted">Waiting Time</div>
+			<div class="col-sm-4 control-label" style="text-align: left">
+				<strong>{{current_session.wait_time}}</strong>
+			</div>				
+		</div>
+
+		<div class="form-group label-group" style="margin: 0px">
+			<div class="col-sm-2 control-label text-muted">Start Time</div>
+			<div class="col-sm-4 control-label" style="text-align: left">
+				<strong>{{current_session.start_time}}</strong>
+			</div>				
+		</div>
+
+	</form>
+</div>

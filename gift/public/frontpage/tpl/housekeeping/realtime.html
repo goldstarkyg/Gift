@@ -1,0 +1,52 @@
+<div ng-controller="RealtimeController">
+   
+    <uib-tabset active="active" >
+      <div class="tabs tabs-style-tzoid pull-left" >
+        <nav ui-nav class="call_menu navi clearfix" >
+          <ul class="tabs-style-tzoid nav" style="height:40px;max-width:1500px;">
+            
+            <li style="margin:8px -5px 0px;" class="{{active == 1 ? 'tab-current' : ''}}">
+              <uib-tab index="1">
+                <uib-tab-heading>
+                  <p class="tabs-style-tzoid" style="color:#fff; font-size:12px"><i class="fa fa-bed fa-lg"></i>&nbsp;&nbsp;<b>Per Room</b></p>
+                </uib-tab-heading>
+                <div style="{{tab_full_height}}" ng-include="'tpl/housekeeping/logperroom.html'">
+                </div>
+              </uib-tab>
+            </li>
+
+            <li style="margin:8px -5px 0px;" class="{{active == 2 ? 'tab-current' : ''}}">
+              <uib-tab index="2">
+                <uib-tab-heading>
+                  <p class="tabs-style-tzoid" style="color:#fff; font-size:12px"><i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;<b>Per Staff</b></p>
+                </uib-tab-heading>
+                <div style="{{tab_full_height}}" ng-include="'tpl/housekeeping/logperstaff.html'">
+                </div>
+              </uib-tab>
+            </li>
+
+            <li style="margin:8px -5px 0px;" class="{{active == 3 ? 'tab-current' : ''}}">
+              <uib-tab index="3">
+                <uib-tab-heading>
+                  <p class="tabs-style-tzoid" style="color:#fff; font-size:12px"><i class="fa fa-building-o fa-lg"></i>&nbsp;&nbsp;<b>Per Floor</b></p>
+                </uib-tab-heading>
+                <div style="{{tab_full_height}}" ng-include="'tpl/housekeeping/logperfloor.html'">
+                </div>
+              </uib-tab>
+            </li>
+
+            <li style="margin:8px -5px 0px;" class="{{active == 4 ? 'tab-current' : ''}}">
+              <uib-tab index="4">
+                <uib-tab-heading>
+                  <p class="tabs-style-tzoid" style="color:#fff; font-size:12px"><i class="fa fa-tachometer fa-lg"></i>&nbsp;&nbsp;<b>Per Dashboard</b></p>
+                </uib-tab-heading>
+                <div style="{{tab_full_height}}" ng-include="'tpl/housekeeping/logdashboard.html'">
+                </div>
+              </uib-tab>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+    </uib-tabset>
+</div>

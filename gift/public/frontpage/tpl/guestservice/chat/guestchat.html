@@ -1,0 +1,226 @@
+<div ng-controller="GuestChatController">
+<script type="text/ng-template" id="transfer_select_dialog.html">
+    <div ng-include="'tpl/guestservice/chat/transfer_select_dialog.html'"></div>
+</script>
+	<div>
+		<div class="btn-group" uib-dropdown is-open="filter_is_open" auto-close="disabled">
+	    	<button class="btn btn-default btn-sm" uib-dropdown-toggle ng-disabled="disabled">
+	    	  	&nbsp;&nbsp;&nbsp;&nbsp;Filter&nbsp;&nbsp;&nbsp; <span class="caret"></span>
+	    	</button>
+	    	<div class="dropdown-menu" style="width: 500px" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+		    	<form role="form">	
+		    		<div class="form-group col-sm-12">
+			            <label>Periods</label>
+			            <input style="width: 100%" ng-model="daterange" ui-jq="daterangepicker" ui-options="dateRangeOption" class="form-control input-sm">
+		            </div>			    		
+		            <div class="form-group col-sm-12">
+			            <label>Agents</label>
+			            <tags-input ng-model="agent_tags" display-property="agent_name" placeholder="Add Agent" style="margin-top: -7px" replace-spaces-with-dashes="false">
+			            	<auto-complete source="loadAgentFilters($query)"
+			                                 min-length="0"
+			                                 load-on-focus="true"
+			                                 load-on-empty="true"
+			                                 debounce-delay="0"
+			                                 max-results="10">
+			                </auto-complete>
+			            </tags-input>
+		            </div>
+		            <div class="form-group col-sm-12">
+		              	<label>Room Numbers</label>
+		              	<tags-input ng-model="room_tags" display-property="room" placeholder="Add Room" style="margin-top: -7px" replace-spaces-with-dashes="false">
+			            	<auto-complete source="loadRoomFilters($query)"
+			                                 min-length="0"
+			                                 load-on-focus="true"
+			                                 load-on-empty="true"
+			                                 debounce-delay="0"
+			                                 max-results="10">
+			                </auto-complete>
+			            </tags-input>
+		            </div>		            
+		            <div class="form-group col-sm-12">
+		            	<div class="pull-right">
+		            		<button type="button" class="btn btn-sm w-xs btn-default" ng-click="onFilterClose()">Close</button>
+		            		<button type="button" class="btn btn-sm w-xs btn-info" ng-click="onFilterReset()">Reset</button>
+		            		<button type="button" class="btn btn-sm w-xs btn-primary" ng-click="onFilterSearch()">Search</button>
+		            	</div>	
+		            </div>	
+		        </form>		    
+	    	</div>
+	    </div>
+
+	    <div class="btn-group" uib-dropdown>
+	    	<button class="btn btn-default btn-sm" uib-dropdown-toggle ng-disabled="disabled">
+	    	  	&nbsp;&nbsp;&nbsp;&nbsp;{{status_filter}}&nbsp;&nbsp;&nbsp; <span class="caret"></span>
+	    	</button>
+	    	<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+	    		<li role="menuitem" ng-repeat="status in status_filter_list" ng-click="onSelectStatus(status)"><a>{{status}}</a></li>	
+	    	</ul>
+	    </div>
+	</div>
+	<div>	
+		<div class="table table-responsive" style="height: 250px; overflow-y: auto">		  	
+			<table  st-table="ticketlist" class="table ticket table-striped b-t b-light" style="width:100%; margin:auto">
+				<thead class="" style="font-size: .7vw">
+					<tr>
+						<th class="text-center"><b>ID</b></th>
+						<th class="text-center"><b>Guest Name</b></th>
+						<th class="text-center"><b>Room</b></th>
+						<th class="text-center"><b>Agent Name</b></th>
+						<th class="text-center"><b>Status</b></th>
+						<th class="text-center"><b>Duration</b></th>
+						<th class="text-center"><b>Wait Time</b></th>
+						<th class="text-center"><b>Start Time</b></th>
+						<th class="text-center"><b>Language</b></th>
+						<th class="text-center"><b>A</b></th>
+					</tr>
+			  	</thead>
+				<tbody>
+					<tr ng-repeat="row in chat_session_list" ng-class="{'selected' : row.id == current_session.id}" ng-click="onSelectChatSession(row)">
+						<td class="text-center"><span>{{row.id}}</span></td>
+						<td class="text-center"><span>{{row.guest_name}}</span></td>
+						<td class="text-center"><span>{{row.room}}</span></td>
+						<td class="text-center"><span>{{row.agent_name}}</span></td>
+						<td class="text-center"><span>{{row.status}} {{row.transfer_id > 0 ? ' -> ' + row.transfer_name : ''}}</span></td>
+						<td class="text-center"><span>{{row.duration}}</span></td>						
+						<td class="text-center"><span>{{row.wait_time}}</span></td>
+						<td class="text-center"><span>{{row.start_time}}</span></td>
+						<td class="text-center"><span>{{row.language_name}}</span></td>
+						<td class="text-center">
+							<span class="badge bg-danger" ng-show="row.unread > 0">{{row.unread}}</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	  	</div>
+	  	<div>
+	  		<div class="col-sm-6" style="padding: 0px">
+	  			<div class="panel panel-default">
+				    <div class="panel-heading">
+				    	<label class="text-sm font-bold"><i class="fa fa-comment text-default"></i>&nbsp;&nbsp;Duration: {{current_session.duration}}
+				    		<span class="label m-l-sm"
+				    			ng-class="{
+				    				'bg-wakeup-waiting': current_session.status=='Waiting',
+				    				'bg-wakeup-success': current_session.status=='Active',
+				    				'bg-wakeup-canceled': current_session.status=='Ended',
+				    				}"
+				    			>
+				    	  		{{current_session.status}}
+				    	  	</span>
+				    	</label>
+				    	<div class="pull-right">
+				    		{{current_session.typing_flag == 0 ? 'Typing...' : ''}}
+				    	  	<div class="btn-group" uib-dropdown>
+						    	<button class="btn btn-default btn-sm" uib-dropdown-toggle ng-disabled="current_session.status != 'Active' || current_session.agent_id != agent_id">
+						    	  	&nbsp;&nbsp;Chat Action&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="caret"></span>
+						    	</button>
+						    	<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+						    		<li role="menuitem" ng-click="onEndChat(current_session)"><a>End Chat</a></li>
+							    	<li role="menuitem" ng-show="current_session.transfer_id < 1" ng-click="onTransferRequest(current_session)"><a>Request Transfer</a></li>
+							    	<li role="menuitem" ng-show="current_session.transfer_id > 0" ng-click="onTransferCancel(current_session)"><a>Cancel Transfer</a></li>
+						    	</ul>
+						    </div>
+				    	</div>  
+				    </div>
+				    <div class="panel-body" fill-height additional-padding="420" scroll-glue>
+				      	
+						<div class="m-b" ng-repeat="msg in messages">
+					        <a ng-if="msg.direction == 0" href class="pull-left" ng-style="{'margin-top': msg.language == 'en' || !msg.text_trans ? '0px' : '20px'}">
+					          	<button class="btn btn-rounded btn-lg btn-icon btn-default">G</button>
+					        </a>
+					        <!-- incoming -->
+					        <div class="m-l-xxl" style="margin-left: 60px" ng-if="msg.direction == 0">
+					        	<div ng-show="msg.language != 'en' && msg.text_trans">
+					        	  	<label class="font-bold">
+					        	    	(
+						    	        <a class="text-sm ng-binding" dynamic="msg.text_trans">                
+						    	        </a>
+					        	    	)
+					        	  	</label>                  
+					        	</div>
+					        	<div class="pos-rlt wrapper b b-light bg-info r r-2x">
+					        	  	<span class="arrow left pull-up arrow-info"></span>
+					        	  	<p class="m-b-none chat" dynamic="msg.text"></p>
+					        	</div>
+					        	<small class="text-muted"><i class="fa fa-ok text-success"></i>{{ msg.created_at | mydate: "h:mm a" }}</small>
+					        </div>
+					        <!-- outgoing -->
+					        <div ng-if="msg.direction == 1">
+					        	<div style="text-align: right">
+					        		<label class="font-bold">
+					        			<a class="text-sm ng-binding">
+					        			  	<i class="fa fa-user text-primary"></i>
+					        			  &nbsp;{{agent_id == msg.agent_id ? 'Me' : msg.agent_name}}
+					        			</a>
+					        		</label>                  
+					        	</div>
+					        	<div class="pos-rlt wrapper bg-primary r r-2x">
+					        	  	<span class="arrow right pull-up arrow-primary"></span>
+					        	 	 <p class="m-b-none">{{msg.text}}</p>
+					        	</div>
+					        	<small class="text-muted">{{ msg.created_at | mydate: "h:mm a" }}</small>
+					        </div>
+				      	</div>	
+
+				    </div>
+				    <footer class="panel-footer">
+				     	<div>
+					        <form class="m-b-none">
+					        	<div class="input-group" ng-show="current_session.status != 'Waiting' && (current_session.status != 'Active' || current_session.transfer_id != agent_id)">
+					        		<input type="text" class="form-control" ng-model="current_session.chat" placeholder="Write a message..." ng-disabled="current_session.status != 'Active' || current_session.agent_id != agent_id"
+					        		ng-keyup="$event.keyCode == 13 && onSendMessage(current_session.chat)"
+					        		ng-change="onChangeChat(current_session.chat)"  ng-model-options="{debounce: 500}"
+					        		>
+					        		<span class="input-group-btn">
+					        			<button class="btn btn-default" type="button" ng-disabled="!current_session.chat || current_session.status != 'Active' || current_session.agent_id != agent_id" style="font-size: 12px" ng-click="onSendMessage(current_session.chat)">Send</button>
+					        		</span>
+					        	</div>
+					        	<div class="text-center" ng-show="current_session.status == 'Waiting' || current_session.status == 'Active' && current_session.transfer_id == agent_id">
+					        		<button class="btn btn-primary w-sm" style="font-size: 12px" type="button" ng-click="onAcceptChat(current_session)">Accept</button>					        		
+					        	</div>
+					        </form>
+					    </div>
+				    </footer>
+				</div>
+	  		</div>
+	  		<div class="col-sm-6" style="padding: 0px">
+	  			<uib-tabset class="tab-container" active="chat_active">
+					<div class="tabs tabs-style-tzoid" style="pull-left">
+						<nav ui-nav class="call_menu navi clearfix">
+							<ul class="nav" style="margin-left: -9px; height:40px;">
+								<li style="margin:8px -6px 0px;" class="{{chat_active == 1 ? 'tab-current' : ''}}">
+									<uib-tab index="1">
+										<uib-tab-heading>
+											<p class="tabs-style-tzoid" style="color:#fff; font-size:12px"><i class="fa fa-users"></i>&nbsp;&nbsp;Details</p>
+										</uib-tab-heading>
+										<div class="stretch" ng-include="'tpl/guestservice/chat/chat_detail.html'">
+										</div>
+									</uib-tab>
+								</li>
+								<li style="margin:8px -6px 0px;"  class="{{chat_active == 2 ? 'tab-current' : ''}}">
+									<uib-tab index="2">
+										<uib-tab-heading>
+											<p class="tabs-style-tzoid" style="color:#fff; font-size:12px"><i class="fa fa-user"></i>&nbsp;&nbsp;History</p>
+										</uib-tab-heading>
+										<div class="stretch" ng-include="'tpl/guestservice/chat/chat_history.html'"
+										>
+										</div>
+									</uib-tab>
+								</li>	
+								<li style="margin:8px -6px 0px;"  class="{{chat_active == 3 ? 'tab-current' : ''}}">
+									<uib-tab index="3">
+										<uib-tab-heading>
+											<p class="tabs-style-tzoid" style="color:#fff; font-size:12px"><i class="fa fa-user"></i>&nbsp;&nbsp;Guest Request</p>
+										</uib-tab-heading>
+										 <div ng-include="'tpl/guestservice/ticket/guest_request.html'" ng-controller="GuestrequestController" 
+										 fill-height additional-padding="400"
+										 >
+									</uib-tab>
+								</li>				
+							</ul>
+						</nav>
+					</div>
+			    </uib-tabset>
+	  		</div>
+	  	</div>
+	</div>
+</div>
