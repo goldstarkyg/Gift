@@ -110,7 +110,8 @@ return [
 
     'log' => env('APP_LOG', 'single'),
 	'super_access_token' => env('SUPER_ACCESS_TOKEN', 'SuperAdmin'),
-	'backend_url' => env('BACKEND_URL', 'photo'),
+	'backend_url' => env('BACKEND_URL', 'photoBO'),
+	'frontend_url' => env('FRONTEND_URL', 'photo'),
     'liveserver_url' => env('LIVESEVER', 'http://localhost:8001'),
     'db_swap_timeout' => env('DB_SWAP_TIMEOUT', 10),
     

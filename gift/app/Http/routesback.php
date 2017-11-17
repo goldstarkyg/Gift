@@ -7,7 +7,7 @@
  */
 Route::post('/backend/sign', array('uses'=>'Backend\UserController@login'));
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return Redirect::to('/' . config('app.backend_url'));
 });
 
