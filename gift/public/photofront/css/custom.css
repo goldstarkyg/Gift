@@ -33,7 +33,7 @@
 }
 
 .top-menu > li > a {
-    padding: 5px 10px 5px  35px;
+    padding: 5px 10px 5px  23px;
     color: #232222 !important; 
     font-size: 16px;
 }
@@ -42,13 +42,12 @@ a:focus, a:active {
   color: #f90909 !important;
   background-color: #fff !important;
 }
-.hr-top {
+.hr-border {
     margin-top: 10px;
-    border-top:1px solid #acaaaa ;
-    border-bottom:1px solid #acaaaa ;
+    border:1px solid #acaaaa ;
 } 
 .top-sub {
-    margin-left: 35px;
+    margin-bottom: 5px;
 }
 .top-sub-header {
     list-style: none;
@@ -61,4 +60,41 @@ a:focus, a:active {
     margin-left: -20px;
     font-size:15px;
     color: #0c5db0;
+}
+
+@media (min-width: 768px) {
+    .content-top {
+        margin-top: 190px;
+    }
+    .app-back-col {
+        background-color:#ffffff;
+    }
+
+}
+@media (max-width: 767px) {
+    .content-top {
+        margin-top: 20px;
+    }
+}
+
+.gift-label {
+    color: #f86604;
+    font-size: 16px;
+}
+.label-square {
+    border: 1px solid #f86604;
+    padding: 10px 20px 10px 20px;
+    color: #f86604;
+    font-size: 16px;
+}
+.dt-1{
+    border: 1px solid #d8d6d6;
+}
+.dt-ht {
+    border: 1px solid #d8d6d6;
+    height:100px;
+}
+
+.text-5x {
+    font-size: 5em;
 }

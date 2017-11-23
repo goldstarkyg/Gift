@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="bower_components/angular-surveys/dist/form-builder-bootstrap.min.css">
     <!-- endbuild -->
 </head>
-<body ng-controller="AppCtrl">
-<div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+<body ng-controller="AppCtrl" >
+<div class="app app-back-col" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
 <input type="hidden" id="app_config" value="'<?php echo base64_encode(json_encode($app_config))?>'">
 <!-- build:js js/app.angular.js -->
 <!-- jQuery -->
