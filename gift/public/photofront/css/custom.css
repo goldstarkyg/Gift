@@ -98,3 +98,14 @@ a:focus, a:active {
 .text-5x {
     font-size: 5em;
 }
+
+.Sign-label {
+    color: #0564ad;
+    font-size: 16px;
+}
+.font-middle {
+    font-weight: 500;
+}
+input.form-control {
+    border-color: #cfdadd !important;
+}

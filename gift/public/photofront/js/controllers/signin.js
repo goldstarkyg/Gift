@@ -14,7 +14,7 @@ app.controller('SigninFormController', ['$scope', '$http', '$state','AuthService
 
         $http({
             method: 'POST',
-            url: '/backend/sign',
+            url: '/frontend/sign',
             data: data,
             headers: {'Content-Type': 'application/json; charset=utf-8'}
         })
@@ -24,7 +24,7 @@ app.controller('SigninFormController', ['$scope', '$http', '$state','AuthService
                     AuthService.SetCredentials(response.data.user);
                     home_page = 'app.dashboard';
                     $state.go(home_page);
-                } else {
+                } else {                    
                     $scope.authError = response.data.message;
                 }
             }).catch(function(response) {
